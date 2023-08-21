@@ -4,12 +4,12 @@ import compression from "compression";
 import dotenv from "dotenv";
 import express from "express";
 
-// import errorHandler from "./controllers/errorController/errorController.js";
+import errorHandler from "./controllers/errorController/errorController.js";
 import connectDB from "./middleware/db.js";
 import expressHelpers from "./middleware/expressHelpers.js";
 import sanitization from "./middleware/sanitization.js";
 import security from "./middleware/security.js";
-// import userRoutes from "./routes/userRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 
@@ -20,9 +20,8 @@ expressHelpers(app);
 sanitization(app);
 app.use(compression());
 
-// MAIN REQUEST ROUTES
+app.use("/api/users", userRoutes);
 
-//
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
@@ -35,6 +34,8 @@ if (process.env.NODE_ENV === "production") {
     res.send("API is running....");
   });
 }
+
+app.use(errorHandler);
 
 connectDB().then(() => {
   const port = process.env.PORT || 3000;
