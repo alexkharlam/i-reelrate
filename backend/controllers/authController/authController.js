@@ -5,14 +5,8 @@ import AppError from "../errorController/AppError.js";
 import { signSendToken, verifyToken } from "./jwtController.js";
 
 export const signupUser = catchAsync(async (req, res, next) => {
-  const filteredBody = {
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    passwordConfirm: req.body.passwordConfirm,
-  };
-
-  const newUser = await User.create(filteredBody);
+  const { name, email, password, passwordConfirm } = req.body;
+  const newUser = await User.create({ name, email, password, passwordConfirm });
 
   signSendToken(newUser, 201, res);
 });
@@ -35,7 +29,6 @@ export const loginUser = catchAsync(async (req, res, next) => {
 
 export const logoutUser = (req, res) => {
   res.cookie("jwt", "loggedout", {
-    // setting empty cookie
     expires: new Date(Date.now() + 1000),
     httpOnly: true,
   });
@@ -64,7 +57,6 @@ export const protect = catchAsync(async (req, res, next) => {
 export const restrictTo =
   (...roles) =>
   (req, res, next) => {
-    // function will be called by express
     if (!roles.includes(req.user.role))
       return next(
         new AppError(`You don't have permission to perform this action`, 403)
