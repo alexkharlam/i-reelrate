@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ErrorPage from "./pages/errorPage";
+import ErrorPage from "./pages/ErrorPage";
 import App from "./App";
 import "./index.css";
 import {
