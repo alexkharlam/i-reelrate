@@ -15,7 +15,7 @@ function LoginPage() {
   }
 
   return (
-    <FormContainer formTitle="Login" onSubmit={submitHandler}>
+    <FormContainer formTitle="Login to ReelRate" onSubmit={submitHandler}>
       <FormLabel htmlFor="email" text="Email address" />
       <FormInput
         value={email}

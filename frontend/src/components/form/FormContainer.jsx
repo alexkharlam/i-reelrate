@@ -1,7 +1,7 @@
 function FormContainer({ children, formTitle, onSubmit }) {
   return (
     <div className="h-full w-full gap-2 flex items-center">
-      <img className="w-1/2" src="/form.svg" />
+      <img className="w-1/2 max-h-full" src="/form.svg" />
       <form
         onSubmit={onSubmit}
         className=" w-1/2 shadow-lg border-2 border-gray-200 shadow-gray-200 bg-gray-100 p-3 rounded-sm"
