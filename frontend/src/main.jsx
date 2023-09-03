@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import ErrorPage from "./pages/ErrorPage";
 import App from "./App";
+import "easymde/dist/easymde.min.css";
 import "./index.css";
 import {
   createBrowserRouter,
