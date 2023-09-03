@@ -7,7 +7,7 @@ function Layout({ children }) {
       <Sidebar />
       <div className="relative h-full w-full overflow-x-hidden overflow-y-scroll dark:bg-gray-900 bg-gray-100">
         <Header />
-        {children}
+        <main className="p-2">{children}</main>
       </div>
     </>
   );

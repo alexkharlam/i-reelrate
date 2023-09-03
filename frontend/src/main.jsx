@@ -10,6 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "../config/i18n";
+import CreateReview from "./pages/CreateReview";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
     >
       <Route index={true} path="/" element={<p>Home screen</p>} />
       <Route path="/about" element={<p>About screen</p>} />
+      <Route path="/reviews/create" element={<CreateReview />} />
     </Route>,
   ),
 );
