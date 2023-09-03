@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Navigation from "../navigation/Navigation";
 import ThemeToggle from "./ThemeToggle";
-import LanguageMenu from "../LanguageMenu/LanguageMenu";
+import LanguageMenu from "../languageMenu/LanguageMenu";
 
 function Sidebar() {
   return (
