@@ -3,24 +3,26 @@ import path from "path";
 import compression from "compression";
 import dotenv from "dotenv";
 import express from "express";
+import passport from "passport";
 
 import errorHandler from "./controllers/errorController/errorController.js";
 import connectDB from "./middleware/db.js";
 import expressHelpers from "./middleware/expressHelpers.js";
 import sanitization from "./middleware/sanitization.js";
 import security from "./middleware/security.js";
-import userRoutes from "./routes/userRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 dotenv.config();
 
 const app = express();
+passport.initialize();
 
 security(app);
 expressHelpers(app);
 sanitization(app);
 app.use(compression());
 
-app.use("/api/users", userRoutes);
+app.use("/auth", authRoutes);
 
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();

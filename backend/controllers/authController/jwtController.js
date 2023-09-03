@@ -1,23 +1,26 @@
 import { promisify } from "util";
 
+import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+
+dotenv.config();
 
 export const verifyToken = (token) =>
   promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
-export const signToken = (userId) => {
+export const signToken = (id) => {
   const secret = process.env.JWT_SECRET;
   const jwtExpiresIn = `${process.env.JWT_EXPIRES_IN}d`;
 
-  const token = jwt.sign({ id: userId }, secret, {
+  const token = jwt.sign({ id }, secret, {
     expiresIn: jwtExpiresIn,
   });
 
   return token;
 };
 
-export const signSendToken = (user, statusCode, res) => {
-  const token = signToken(user._id);
+export const signSendToken = (res, userId) => {
+  const token = signToken(userId);
   const cookieExpiresIn = new Date(
     Date.now() + process.env.JWT_EXPIRES_IN * 86400000
   );
@@ -29,16 +32,4 @@ export const signSendToken = (user, statusCode, res) => {
   if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
 
   res.cookie("jwt", token, cookieOptions);
-
-  res.status(statusCode).json({
-    status: "success",
-    data: {
-      user: {
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        photo: user.photo,
-      },
-    },
-  });
 };

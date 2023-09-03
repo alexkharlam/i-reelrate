@@ -1,17 +1,13 @@
 import { Outlet } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Layout from "./components/layout/Layout";
 // import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <div className="">
-      <Header />
-      <p className="text-center my-3 text-2xl">Hello, world! In development</p>
+    <Layout>
       <Outlet />
-      <Footer />
-    </div>
+    </Layout>
   );
 }
 

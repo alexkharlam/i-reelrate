@@ -1,0 +1,34 @@
+import { useEffect, useState } from "react";
+import { Moon, Sun } from "react-feather";
+
+function ThemeToggle() {
+  const initialTheme = localStorage.getItem("theme") ? true : false;
+  const [isDarkTheme, setIsDarkTheme] = useState(initialTheme);
+
+  const toggleDarkTheme = (theme) => {
+    const htmlDOM = document.querySelector("html");
+    if (theme) {
+      htmlDOM.classList.add("dark");
+      localStorage.setItem("theme", "1");
+    } else {
+      htmlDOM.classList.remove("dark");
+      localStorage.setItem("theme", "");
+    }
+  };
+
+  useEffect(() => {
+    toggleDarkTheme(isDarkTheme);
+  }, [isDarkTheme]);
+
+  return (
+    <button
+      className="hover:text-primary hover:scale-105"
+      onClick={() => setIsDarkTheme((theme) => !theme)}
+    >
+      {isDarkTheme && <Sun />}
+      {!isDarkTheme && <Moon />}
+    </button>
+  );
+}
+
+export default ThemeToggle;

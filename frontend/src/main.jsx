@@ -9,8 +9,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import RegisterPage from "./pages/RegisterPage";
-import LoginPage from "./pages/LoginPage";
+import "../config/i18n";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,8 +19,6 @@ const router = createBrowserRouter(
       errorElement={<ErrorPage message="Page not found" />}
     >
       <Route index={true} path="/" element={<p>Home screen</p>} />
-      <Route index={true} path="/signup" element={<RegisterPage />} />
-      <Route index={true} path="/login" element={<LoginPage />} />
       <Route path="/about" element={<p>About screen</p>} />
     </Route>,
   ),
