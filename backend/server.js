@@ -2,11 +2,6 @@ import path from "path";
 
 import { v2 as cloudinary } from "cloudinary";
 import compression from "compression";
-// TODO: DELETE CORS
-/*eslint-disable*/
-import cors from "cors";
-/*eslint-enable*/
-
 import dotenv from "dotenv";
 import express from "express";
 import passport from "passport";
@@ -24,10 +19,6 @@ import userRoutes from "./routes/userRoutes.js";
 dotenv.config();
 
 const app = express();
-
-// TODO: DELETE CORS
-app.use(cors({ origin: "http://localhost:8000" }));
-// TODO:
 
 passport.initialize();
 
@@ -53,12 +44,6 @@ app.use(express.static(path.join(__dirname, "/frontend/dist")));
 app.get("*", (req, res) =>
   res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
 );
-
-// else {
-//   app.get("/", (req, res) => {
-//     res.send("Hello, world! In development");
-//   });
-// }
 
 app.use(errorHandler);
 
