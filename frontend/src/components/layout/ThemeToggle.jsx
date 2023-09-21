@@ -7,12 +7,12 @@ function ThemeToggle() {
 
   const toggleDarkTheme = (theme) => {
     const htmlDOM = document.querySelector("html");
-    if (theme) {
+    if (!theme) {
       htmlDOM.classList.add("dark");
-      localStorage.setItem("theme", "1");
+      localStorage.setItem("theme", "");
     } else {
       htmlDOM.classList.remove("dark");
-      localStorage.setItem("theme", "");
+      localStorage.setItem("theme", "1");
     }
   };
 

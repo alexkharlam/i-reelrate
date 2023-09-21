@@ -39,6 +39,7 @@ i18n
             topReviews: "Top reviews",
             createReview: "Create review",
             myReviews: "My reviews",
+            search: "Search",
           },
           header: {
             authButton: "Log in / Sign up",
@@ -97,6 +98,7 @@ i18n
             topReviews: "Лучшие обзоры",
             createReview: "Создать обзор",
             myReviews: "Мои обзоры",
+            search: "Поиск",
           },
           header: {
             authButton: "Вход / Регистрация",
