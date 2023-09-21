@@ -9,11 +9,21 @@ export default {
     extend: {},
     // colors
     colors: {
+      gradient: {
+        yellow: {
+          1: "FFD43B",
+          2: "9A6352",
+        },
+      },
+      transparent: "rgba(0,0,0,0)",
       white: "#fff",
       black: "#000",
       background: {
         DEFAULT: "#121212",
         light: "#222222",
+      },
+      additional: {
+        DEFAULT: "#5f3dc4",
       },
       primary: {
         DEFAULT: "#ffd43b", // DEFAULT is between 500 and 600

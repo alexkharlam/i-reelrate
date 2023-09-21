@@ -19,17 +19,17 @@ export const signToken = (id) => {
   return token;
 };
 
-export const signSendToken = (res, userId) => {
-  const token = signToken(userId);
+export const signSendToken = (res, user) => {
+  const token = signToken(user._id);
   const cookieExpiresIn = new Date(
     Date.now() + process.env.JWT_EXPIRES_IN * 86400000
   );
 
-  const cookieOptions = {
+  const jwtCookieOptions = {
     expires: cookieExpiresIn,
     httpOnly: true,
   };
-  if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
+  if (process.env.NODE_ENV === "production") jwtCookieOptions.secure = true;
 
-  res.cookie("jwt", token, cookieOptions);
+  res.cookie("jwt", token, jwtCookieOptions);
 };

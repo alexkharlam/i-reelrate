@@ -19,15 +19,10 @@ const userSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    default: "default.jpg",
+    default:
+      "https://res.cloudinary.com/dl3mrqdyz/image/upload/v1695052774/defaults/default-user.jpg",
   },
 });
-
-// userSchema.pre(/^find/, function (next) {
-//   this.find({ active: { $ne: false } });
-
-//   next();
-// });
 
 const User = mongoose.model("User", userSchema);
 

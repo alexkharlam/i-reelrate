@@ -18,21 +18,28 @@ export const startAuth = async (accessToken, refreshToken, profile, done) => {
 };
 
 export const handleAuthCallback = (req, res) => {
-  signSendToken(res, req.user._id);
-  res.redirect("http://localhost:8000/");
+  signSendToken(res, req.user);
+
+  const userParam = encodeURIComponent(
+    JSON.stringify({
+      name: req.user.name,
+      email: req.user.email,
+      photo: req.user.photo,
+    })
+  );
+  res.redirect(`http://localhost:3000?user=${userParam}`);
 };
 
 export const protect = catchAsync(async (req, res, next) => {
-  // 1. get the token and check if it's there
   const token = req.cookies.jwt;
-  if (!token)
-    return res.status(400).json({ message: "You are not authorized" });
-  // 2. verify token
+
+  if (!token) return next(new AppError("You are not authorized", 401));
+
   const decoded = await verifyToken(token);
-  // 3. If success, check if user still exists
+
   const freshUser = await User.findById(decoded.id);
-  if (!freshUser)
-    return res.status(400).json({ message: "User no longer exists" });
+
+  if (!freshUser) return next(new AppError("User not found", 401));
 
   req.user = freshUser;
   next();
@@ -48,3 +55,13 @@ export const restrictTo =
 
     next();
   };
+
+export const logoutUser = (req, res, next) => {
+  res.cookie("jwt", "loggedout", {
+    expires: new Date(Date.now() + 1000),
+    httpOnly: true,
+  });
+  res.status(200).json({
+    status: "success",
+  });
+};

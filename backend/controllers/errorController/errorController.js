@@ -7,6 +7,7 @@ import {
 } from "./handleSpecificErrors.js";
 
 const sendErrorDev = (err, req, res) => {
+  console.log(err);
   res.status(+err.statusCode).json({
     status: err.status,
     message: err.message,
@@ -38,7 +39,6 @@ export default (err, req, res, next) => {
   err.status = err.status || "error";
 
   const env = process.env.NODE_ENV;
-  // error handling depends on current enviroment
   if (env === "development") return sendErrorDev(err, req, res);
   if (env === "production") {
     if (err.name === "CastError") err = castError(err);

@@ -6,8 +6,10 @@ import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import providersConfig from "../config/providersConfig.js";
 import {
   handleAuthCallback,
+  logoutUser,
   startAuth,
 } from "../controllers/authController/authController.js";
+import { signSendToken } from "../controllers/authController/jwtController.js";
 
 const router = express.Router();
 
@@ -34,5 +36,19 @@ router.get(
   passport.authenticate("google", { session: false }),
   handleAuthCallback
 );
+
+router.get("/logout", logoutUser);
+
+router.get("/testAuth", (req, res) => {
+  console.log("hey");
+  signSendToken(res, {
+    _id: "650874cb6c7d0b5f2c9b67dc",
+    name: "Alex Kharlamov",
+    email: "aakharlam@gmail.com",
+    role: "user",
+  });
+
+  res.status(200).json({ status: "success" });
+});
 
 export default router;
