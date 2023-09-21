@@ -7,7 +7,7 @@ function Header() {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
   return (
-    <header className="flex justify-between items-center p-2">
+    <header className="hidden justify-between items-center md:flex p-2">
       <HeaderSearch />
       {!isAuthenticated && <LoginButton />}
       {isAuthenticated && <LogoutButton />}
