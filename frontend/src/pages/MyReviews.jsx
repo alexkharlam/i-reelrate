@@ -4,8 +4,6 @@ import ReviewsFullList from "../components/reviewsFullList/ReviewsFullList";
 function MyReviews() {
   const auth = useSelector((state) => state.auth);
 
-  console.log(auth);
-
   return (
     <>
       <ReviewsFullList title={`${auth.user.name} - my reviews`} user={true} />

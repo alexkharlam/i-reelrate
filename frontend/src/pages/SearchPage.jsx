@@ -5,7 +5,6 @@ import useSearch from "../hooks/useSearch";
 
 function SearchPage() {
   const { results, query, setQuery, isLoading } = useSearch();
-  console.log(results);
 
   return (
     <>
