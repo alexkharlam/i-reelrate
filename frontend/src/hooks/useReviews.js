@@ -13,7 +13,7 @@ export default function useReviews({ user = false }) {
       setIsLoading(true);
       try {
         const res = await axios({
-          url: `http://localhost:3000/api/reviews${
+          url: `/api/reviews${
             user ? "/user" : ""
           }?sort=${sortBy}&category=${category}`,
         });
