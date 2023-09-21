@@ -22,21 +22,18 @@ export default {
         DEFAULT: "#121212",
         light: "#222222",
       },
-      additional: {
-        DEFAULT: "#5f3dc4",
-      },
       primary: {
-        DEFAULT: "#ffd43b", // DEFAULT is between 500 and 600
-        100: "#fffbeb",
-        200: "#fff2c4",
-        300: "#ffea9d",
-        400: "#ffe176",
-        500: "#ffd84f",
-        600: "#e6bf35",
-        700: "#b39429",
-        800: "#806a1e",
-        900: "#4c4012",
-        1000: "#191506",
+        DEFAULT: "#5f3dc4", // DEFAULT is between 500 and 600
+        100: "#efecf9",
+        200: "#cfc5ed",
+        300: "#af9ee2",
+        400: "#8f77d6",
+        500: "#6f50ca",
+        600: "#5637b0",
+        700: "#432b89",
+        800: "#301f62",
+        900: "#1c123b",
+        1000: "#090614",
       },
       gray: {
         100: "#f8f9fa",

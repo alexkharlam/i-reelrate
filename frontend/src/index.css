@@ -1,5 +1,13 @@
 @tailwind base;
 @layer base {
+  .text-secondary {
+    @apply dark:text-gray-300 text-gray-600;
+  }
+
+  .text-tertiary {
+    @apply dark:text-gray-400 text-gray-500;
+  }
+
   .markdown-editor {
     @apply bg-primary-300;
   }

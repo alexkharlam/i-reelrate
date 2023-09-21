@@ -25,7 +25,7 @@ function CategoriesCloud({ currentCategory, setCategory }) {
           type="button"
           className={`px-2.5 py-1 rounded-sm text-lg font-semibold border-gray-600 border-2  ${
             category === currentCategory
-              ? "bg-black text-white hover:bg-black dark:hover:bg-white"
+              ? "bg-black hover:bg-black text-white dark:bg-white dark:text-black dark:hover:bg-white"
               : "dark:hover:bg-gray-600 hover:bg-gray-200"
           }`}
           onClick={() => handleChange(category)}

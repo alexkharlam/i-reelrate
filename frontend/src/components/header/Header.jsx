@@ -1,16 +1,29 @@
-import LoginButton from "./LoginButton";
 import { useSelector } from "react-redux";
-import LogoutButton from "./LogoutButton";
 import HeaderSearch from "./HeaderSearch";
+import useLoginLogout from "../../hooks/useLoginLogout";
+import HeaderButton from "./HeaderButton";
+import { useTranslation } from "react-i18next";
+import { LogIn } from "react-feather";
 
 function Header() {
+  const { t } = useTranslation();
   const { isAuthenticated } = useSelector((state) => state.auth);
+  const { handleLogin, handleLogout } = useLoginLogout();
+  // {t("header.logoutButton")}
+  // {t("header.authButton")}
 
   return (
     <header className="hidden justify-between items-center md:flex p-2">
       <HeaderSearch />
-      {!isAuthenticated && <LoginButton />}
-      {isAuthenticated && <LogoutButton />}
+
+      {!isAuthenticated && (
+        <HeaderButton
+          onClick={handleLogin}
+          Icon={LogIn}
+          text={t("header.authButton")}
+        />
+      )}
+      {isAuthenticated && <HeaderButton onClick={handleLogout} />}
     </header>
   );
 }
