@@ -27,7 +27,7 @@ export const handleAuthCallback = (req, res) => {
       photo: req.user.photo,
     })
   );
-  res.redirect(`http://localhost:3000?user=${userParam}`);
+  res.redirect(`https://reelrate.site?user=${userParam}`);
 };
 
 export const protect = catchAsync(async (req, res, next) => {
