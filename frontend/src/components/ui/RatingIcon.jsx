@@ -22,7 +22,7 @@ function RatingIcon({ rating }) {
     ratingValue % 1 === 0 ? ratingValue : ratingValue.toFixed(2);
 
   return (
-    <div className="flex gap-1 items-center  text-md font-bold">
+    <div className="flex gap-1 items-center  text-md font-bold text-white">
       <p>{formattedRating}</p>
       <Star fill={color} color={color} size={18} />
       <p>({numRates})</p>

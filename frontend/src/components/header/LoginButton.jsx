@@ -8,7 +8,7 @@ function LoginButton() {
   return (
     <Link
       to="/login"
-      className="flex gap-1 text-white text-md font-bold px-2 py-1 rounded-sm items-center bg-gradient-to-r from-[#FFD43B] to-[#9A6352]"
+      className="gap-1 hidden md:flex text-white text-md font-bold px-2 py-1 rounded-sm items-center bg-gradient-to-r from-[#FFD43B] to-[#9A6352]"
     >
       <LogIn />
       <span>{t("header.authButton")}</span>

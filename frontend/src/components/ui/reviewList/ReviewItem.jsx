@@ -7,7 +7,7 @@ function ReviewItem({ review }) {
     <li className="group">
       <Link
         to={`/reviews/${review._id}`}
-        className="relative w-full lg:flex h-6 hover:bg-gray-800"
+        className="relative w-full lg:flex h-6 hover:bg-gray-200 dark:hover:bg-gray-800"
       >
         <ReviewItemImg review={review} />
         <ReviewDescription review={review} />

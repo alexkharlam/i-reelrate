@@ -8,6 +8,7 @@ function SearchPage() {
 
   return (
     <>
+      <h3 className="text-2xl font-semibold">Search for ReelRate reviews</h3>
       <SearchInput value={query} onChange={setQuery} />
       {isLoading && <LoadingSpinner />}
       {results.length > 0 && <ReviewList reviews={results} />}
