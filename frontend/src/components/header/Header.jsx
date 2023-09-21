@@ -23,7 +23,13 @@ function Header() {
           text={t("header.authButton")}
         />
       )}
-      {isAuthenticated && <HeaderButton onClick={handleLogout} />}
+      {isAuthenticated && (
+        <HeaderButton
+          onClick={handleLogout}
+          Icon={LogIn}
+          text={t("header.logoutButton")}
+        />
+      )}
     </header>
   );
 }
