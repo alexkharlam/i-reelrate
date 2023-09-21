@@ -2,7 +2,7 @@ import ReviewImage from "./ReviewImage";
 import ReviewRating from "./ReviewRating";
 import ReviewSubject from "./ReviewSubject";
 import ReviewText from "./ReviewText";
-import ReviewAuthorIcon from "./reviewAuthorIcon";
+import ReviewAuthorIcon from "./ReviewAuthorIcon";
 import { useSelector } from "react-redux";
 
 function ReviewItem({ reviewData }) {
