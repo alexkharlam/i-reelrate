@@ -29,7 +29,6 @@ export const signSendToken = (res, user) => {
     expires: cookieExpiresIn,
     httpOnly: true,
   };
-  if (process.env.NODE_ENV === "production") jwtCookieOptions.secure = true;
 
   res.cookie("jwt", token, jwtCookieOptions);
 };

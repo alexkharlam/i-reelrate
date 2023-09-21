@@ -10,12 +10,12 @@ function ReviewDescription({ review }) {
       <h4 className="text-lg font-bold mb-2 group-hover:underline">
         {review.reviewTitle}
       </h4>
-      <div className="flex gap-2">
+      <div className="flex md: gap-1.5 md:flex-row flex-col">
         <DescriptionText Icon={Book} text={review.subjectTitle} />
         <DescriptionText Icon={User} text={review.user.name} />
       </div>
-      <DescriptionText text={formattedDate} className="mt-auto" />
-      <div className="w-full h-[1px] bg-gray-600"></div>
+      <DescriptionText text={formattedDate} className="mt-auto lg:pt-0 pt-2" />
+      <div className="w-full lg:hidden my-2 h-[1px] bg-gray-600"></div>
     </div>
   );
 }

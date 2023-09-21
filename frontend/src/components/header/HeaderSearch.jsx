@@ -12,7 +12,7 @@ function HeaderSearch() {
   }
 
   return (
-    <div className="max-w-xl w-full">
+    <div className="lg:max-w-xl max-w-sm w-full">
       {!isSearchPage && <SearchForm onSubmit={handleSubmit} />}
     </div>
   );
