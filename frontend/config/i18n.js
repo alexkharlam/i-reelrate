@@ -19,6 +19,7 @@ i18n
             provideFields: "Please provide all required fields",
           },
           reviews: {
+            myReviews: "My reviews",
             allReviews: "All reviews",
             notFound:
               "We didn't find reviews for this filter. Please try another category",
@@ -89,6 +90,7 @@ i18n
             provideFields: "Пожалуйста, заполните все нужные поля",
           },
           reviews: {
+            myReviews: "Мои обзоры",
             allReviews: "Все обзоры",
             notFound:
               "Мы не нашли обзоры, подходящие под фильтр. Пожалуйста, попробуйте поменять категорию",

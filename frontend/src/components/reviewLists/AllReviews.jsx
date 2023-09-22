@@ -14,7 +14,7 @@ function AllReviews({ title, user = false }) {
 
   return (
     <>
-      <h3 className="font-semibold text-2xl mt-3">{title}</h3>
+      {title && <h3 className="font-semibold text-2xl mt-3">{title}</h3>}
       <CategoriesCloud currentCategory={category} setCategory={setCategory} />
       <SortDropdown sortBy={sortBy} setSortBy={setSortBy} />
 

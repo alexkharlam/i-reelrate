@@ -52,7 +52,7 @@ function ReviewEditor({ initialValues, onSubmit, isSubmitting }) {
       <Verdict value={verdict} setValue={setVerdict} />
       <button
         disabled={isSubmitting ? true : false}
-        className="py-2 px-4 text-1xl bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-lg"
+        className="py-2 px-4 text-1xl bg-primary-600 hover:bg-primary-700 text-white font-bold w-full md:w-auto rounded-lg"
         type="submit"
       >
         {t("editReview.submit")}

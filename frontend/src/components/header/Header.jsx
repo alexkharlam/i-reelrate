@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import HeaderSearch from "./headerSearch/HeaderSearch";
 import useLoginLogout from "../../hooks/useLoginLogout";
-import HeaderButton from "./HeaderButton";
+import Button from "../ui/buttons/Button";
 import { useTranslation } from "react-i18next";
 import { LogIn } from "react-feather";
 import MobileHeader from "./MobileHeader";
@@ -20,14 +20,14 @@ function Header() {
         <HeaderSearch />
 
         {!isAuthenticated && (
-          <HeaderButton
+          <Button
             onClick={handleLogin}
             Icon={LogIn}
             text={t("header.authButton")}
           />
         )}
         {isAuthenticated && (
-          <HeaderButton
+          <Button
             onClick={handleLogout}
             Icon={LogIn}
             text={t("header.logoutButton")}

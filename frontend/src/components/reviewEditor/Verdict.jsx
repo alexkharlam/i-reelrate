@@ -8,7 +8,7 @@ function Verdict({ value, setValue }) {
           type="button"
           onClick={() => setValue(option)}
           className={`hover:bg-gray-500 py-1.5 px-2.5 rounded-full text-1xl border-[1px] border-gray-500 ${
-            option === value && "bg-primary-600 hover:bg-primary-600"
+            option === value && "bg-primary-600 text-white hover:bg-primary-600"
           }`}
           key={option}
         >
