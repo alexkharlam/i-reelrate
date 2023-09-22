@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function useRating(reviewData) {
-  const [rating, setRating] = useState(0);
+  const [userRate, setUserRate] = useState(0);
+  const [rating, setRating] = useState(reviewData.rating);
 
   async function initUserRating() {
     try {
@@ -10,9 +12,26 @@ export default function useRating(reviewData) {
         url: `/api/rates/${reviewData._id}/userRate`,
       });
 
-      if (res.data.rate) setRating(res.data.rate.rating);
+      if (res.data.rate) setUserRate(res.data.rate.rating);
     } catch (err) {
-      console.log(err);
+      toast.error(
+        err?.response?.data?.message || "Something went wrong, try again!",
+      );
+    }
+  }
+
+  async function updateRating() {
+    try {
+      const res = await axios({
+        method: "get",
+        url: `/api/rates/${reviewData._id}`,
+      });
+      console.log(res);
+      setRating(res.data.rating);
+    } catch (err) {
+      toast.error(
+        err?.response?.data?.message || "Something went wrong, try again!",
+      );
     }
   }
 
@@ -24,15 +43,18 @@ export default function useRating(reviewData) {
         data: { rating: value },
       });
     } catch (err) {
-      console.log(err);
+      toast.error(
+        err?.response?.data?.message || "Something went wrong, try again!",
+      );
     }
   }
 
   function handleRate(newRating) {
-    setRating(newRating);
+    setUserRate(newRating);
 
     updateUserRating(newRating);
+    updateRating();
   }
 
-  return { initUserRating, updateUserRating, handleRate, rating };
+  return { initUserRating, updateUserRating, handleRate, userRate, rating };
 }

@@ -1,6 +1,7 @@
 import Rate from "../../models/rateModel.js";
 import Review from "../../models/reviewModel.js";
 import catchAsync from "../../utils/catchAsync.js";
+import AppError from "../errorController/AppError.js";
 
 const calculateAverageRating = async (reviewId) => {
   const reviewRatings = await Rate.find({ review: reviewId });
@@ -51,5 +52,16 @@ export const getUsersRating = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     rate: usersRate || null,
+  });
+});
+
+export const getRating = catchAsync(async (req, res, next) => {
+  const { reviewId } = req.params;
+
+  const review = await Review.findById(reviewId);
+  if (!review) return next(new AppError("Review does not exist", 400));
+
+  res.status(200).json({
+    rating: review.rating,
   });
 });

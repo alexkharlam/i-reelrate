@@ -6,7 +6,8 @@ import useRating from "../../hooks/useRating";
 
 function ReviewRating({ reviewData }) {
   const { t } = useTranslation();
-  const { initUserRating, rating, handleRate } = useRating(reviewData);
+  const { initUserRating, userRate, handleRate, rating } =
+    useRating(reviewData);
 
   useEffect(() => {
     initUserRating();
@@ -16,16 +17,16 @@ function ReviewRating({ reviewData }) {
     <div className="flex gap-1 flex-col">
       <div className="flex gap-1">
         <p>{t("review.rating")}:</p>
-        <RatingIcon rating={reviewData.rating} />
+        <RatingIcon rating={rating} />
       </div>
       <div className="flex gap-2 items-center">
         <p>
           {t("review.yourRating")}&nbsp;
-          {rating}
+          {userRate}
         </p>
         <StarRatings
           className="h-2"
-          rating={rating}
+          rating={userRate}
           starRatedColor="#ffd43b"
           starHoverColor="#806a1e"
           starDimension="25px"
