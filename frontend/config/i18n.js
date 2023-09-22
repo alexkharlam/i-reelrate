@@ -130,8 +130,8 @@ i18n
             searchButton: "Поиск",
           },
           login: {
-            google: "Войти с аккаунтом Google",
-            github: "Войти с аккаунтом Github",
+            google: "Войти с Google",
+            github: "Войти с Github",
             title: "ReelRate - войти в аккаунт",
             features: {
               title: "И получите доступ ко всем функциям",
