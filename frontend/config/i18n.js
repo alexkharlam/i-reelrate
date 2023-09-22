@@ -18,7 +18,11 @@ i18n
           errors: {
             provideFields: "Please provide all required fields",
           },
+          cta: {
+            createReview: "Start creating your own reviews",
+          },
           reviews: {
+            popular: "Trending now",
             myReviews: "My reviews",
             allReviews: "All reviews",
             notFound:
@@ -89,7 +93,11 @@ i18n
           errors: {
             provideFields: "Пожалуйста, заполните все нужные поля",
           },
+          cta: {
+            createReview: "Начните создавать свои обзоры",
+          },
           reviews: {
+            popular: "В тренде",
             myReviews: "Мои обзоры",
             allReviews: "Все обзоры",
             notFound:
