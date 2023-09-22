@@ -49,10 +49,10 @@ export default function useRating(reviewData) {
     }
   }
 
-  function handleRate(newRating) {
+  async function handleRate(newRating) {
     setUserRate(newRating);
 
-    updateUserRating(newRating);
+    await updateUserRating(newRating);
     updateRating();
   }
 
