@@ -23,11 +23,15 @@ i18n
             notFound:
               "We didn't find reviews for this filter. Please try another category",
           },
-          allReviews: "All reviews",
           sort: {
             latest: "Sort by latest",
             popular: "Sort by popular",
             rating: "Sort by rating",
+          },
+          search: {
+            title: "Search for reviews",
+            placeholder: "No results yet! Try to type something else",
+            notFound: "Reviews not found. Try again!",
           },
           categories: {
             all: "All",
@@ -87,11 +91,16 @@ i18n
             notFound:
               "Мы не нашли обзоры, подходящие под фильтр. Пожалуйста, попробуйте поменять категорию",
           },
-          allReviews: "Все обзоры",
           sort: {
             latest: "По дате ",
             popular: "По популярности",
             rating: "По рейтингу",
+          },
+          search: {
+            title: "Искать обзоры",
+            placeholder:
+              "Пока нет результатов! Попробуйте напечатать что-то еще!",
+            notFound: "Мы не нашли обзоров по вашему запросу. Попробуйте еще!",
           },
           categories: {
             all: "Все",
