@@ -12,7 +12,7 @@ function HomePage() {
     <div>
       {!isAuthenticated && <LoginBlock />}
 
-      <AllReviews title={t("allReviews")} />
+      <AllReviews title={t("reviews.allReviews")} />
     </div>
   );
 }

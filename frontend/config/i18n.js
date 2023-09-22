@@ -18,6 +18,11 @@ i18n
           errors: {
             provideFields: "Please provide all required fields",
           },
+          reviews: {
+            allReviews: "All reviews",
+            notFound:
+              "We didn't find reviews for this filter. Please try another category",
+          },
           allReviews: "All reviews",
           sort: {
             latest: "Sort by latest",
@@ -76,6 +81,11 @@ i18n
         translation: {
           errors: {
             provideFields: "Пожалуйста, заполните все нужные поля",
+          },
+          reviews: {
+            allReviews: "Все обзоры",
+            notFound:
+              "Мы не нашли обзоры, подходящие под фильтр. Пожалуйста, попробуйте поменять категорию",
           },
           allReviews: "Все обзоры",
           sort: {
