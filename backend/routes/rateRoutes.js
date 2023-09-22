@@ -11,6 +11,6 @@ const router = express.Router();
 
 router.post("/:reviewId", protect, createRating);
 router.get("/getUserRate/:reviewId", protect, getUsersRating);
-router.get("/getRating/:reviewId", protect, getRating);
+router.get("/getRating/:reviewId", getRating);
 
 export default router;
