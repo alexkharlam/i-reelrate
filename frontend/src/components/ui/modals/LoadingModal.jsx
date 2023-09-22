@@ -1,4 +1,4 @@
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../spinners/LoadingSpinner";
 
 function LoadingModal({ message }) {
   return (

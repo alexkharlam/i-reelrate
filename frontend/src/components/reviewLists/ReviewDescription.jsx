@@ -1,4 +1,4 @@
-import DescriptionText from "../typography/DescriptionText";
+import DescriptionText from "../ui/typography/DescriptionText";
 import { Book, User } from "react-feather";
 import { format } from "date-fns";
 

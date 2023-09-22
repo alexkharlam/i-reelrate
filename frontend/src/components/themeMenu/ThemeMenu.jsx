@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "react-feather";
 
-function ThemeToggle() {
+function ThemeMenu() {
   const initialTheme = localStorage.getItem("theme") ? true : false;
   const [isDarkTheme, setIsDarkTheme] = useState(initialTheme);
 
@@ -31,4 +31,4 @@ function ThemeToggle() {
   );
 }
 
-export default ThemeToggle;
+export default ThemeMenu;

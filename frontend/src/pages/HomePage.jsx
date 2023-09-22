@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import LoginBlock from "../components/ui/LoginBlock";
+import LoginBlock from "../components/login/LoginBlock";
 
-import ReviewsFullList from "../components/reviewsFullList/ReviewsFullList";
+import AllReviews from "../components/reviewLists/AllReviews";
 import { useTranslation } from "react-i18next";
 
-function Home() {
+function HomePage() {
   const { t } = useTranslation();
   const { isAuthenticated } = useSelector((state) => state.auth);
 
@@ -12,9 +12,9 @@ function Home() {
     <div>
       {!isAuthenticated && <LoginBlock />}
 
-      <ReviewsFullList title={t("allReviews")} />
+      <AllReviews title={t("allReviews")} />
     </div>
   );
 }
 
-export default Home;
+export default HomePage;

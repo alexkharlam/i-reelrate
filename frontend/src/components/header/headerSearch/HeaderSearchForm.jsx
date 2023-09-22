@@ -2,17 +2,15 @@ import { Search } from "react-feather";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-function SearchForm({ onSubmit }) {
+function HeaderSearchForm({ onSubmit }) {
   const [query, setQuery] = useState("");
-
   const { t } = useTranslation();
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!query) return;
-
     onSubmit(query);
-  }
+  };
 
   return (
     <form
@@ -37,4 +35,4 @@ function SearchForm({ onSubmit }) {
   );
 }
 
-export default SearchForm;
+export default HeaderSearchForm;

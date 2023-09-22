@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import HeaderSearch from "./HeaderSearch";
+import HeaderSearch from "./headerSearch/HeaderSearch";
 import useLoginLogout from "../../hooks/useLoginLogout";
 import HeaderButton from "./HeaderButton";
 import { useTranslation } from "react-i18next";

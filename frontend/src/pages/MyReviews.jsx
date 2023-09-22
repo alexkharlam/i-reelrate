@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import ReviewsFullList from "../components/reviewsFullList/ReviewsFullList";
+import AllReviews from "../components/reviewLists/AllReviews";
 
 function MyReviews() {
   const auth = useSelector((state) => state.auth);
 
   return (
     <>
-      <ReviewsFullList title={`${auth.user.name} - my reviews`} user={true} />
+      <AllReviews title={`${auth.user.name} - my reviews`} user={true} />
     </>
   );
 }

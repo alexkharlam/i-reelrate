@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ImageSelector from "./imageSelector/ImageSelector";
 import TitleInput from "./TitleInput";
-import CategoriesCloud from "../ui/CategoriesCloud";
+import CategoriesCloud from "../categoriesCloud/CategoriesCloud";
 import MarkdownEditor from "./MarkdownEditor";
 import Verdict from "./Verdict";
 import { useTranslation } from "react-i18next";
@@ -36,9 +36,6 @@ function ReviewEditor({ initialValues, onSubmit, isSubmitting }) {
     onSubmit(reviewFormData);
   }
 
-  // TODO: Categories (options) should be fetched from the server
-  // TODO: Tags should be fetched from the server (autocomplete tags on typing)
-
   return (
     <form onSubmit={handleSubmit}>
       <h4>1: {t("editReview.coverImage")}</h4>
@@ -49,12 +46,6 @@ function ReviewEditor({ initialValues, onSubmit, isSubmitting }) {
       <TitleInput value={subjectTitle} setValue={setSubjectTitle} />
       <h4>4: {t("editReview.category")}</h4>
       <CategoriesCloud currentCategory={category} setCategory={setCategory} />
-      <h4>5: {t("editReview.tags")}</h4>
-      <input
-        type="text"
-        className="bg-transparent border-2 border-gray-600 p-2 font-[Montserrat] rounded-sm text-lg mb-4 w-full "
-        placeholder="Start typing tag names..."
-      />
       <h4>6: {t("editReview.reviewText")}</h4>
       <MarkdownEditor value={mdValue} setValue={setMdValue} />
       <h4>7: {t("editReview.verdict")}</h4>

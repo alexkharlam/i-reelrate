@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import UserNavigation from "./UserNavigation";
 
-function Navigation() {
+function DekstopNavigation() {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
   const { t } = useTranslation();
@@ -24,4 +24,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default DekstopNavigation;

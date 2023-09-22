@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Navigation from "../navigation/Navigation";
-import ThemeToggle from "./ThemeToggle";
+import DekstopNavigation from "../navigation/dekstopNavigation/DekstopNavigation";
+import ThemeMenu from "../themeMenu/ThemeMenu";
 import LanguageMenu from "../languageMenu/LanguageMenu";
 
 function Sidebar() {
@@ -9,9 +9,9 @@ function Sidebar() {
       <Link to="/">
         <img className="w-[150px]" src="/logo/rrlogo.svg" alt="ReelRate logo" />
       </Link>
-      <Navigation />
+      <DekstopNavigation />
       <div className="mt-auto flex justify-between items-center">
-        <ThemeToggle />
+        <ThemeMenu />
         <LanguageMenu />
       </div>
     </aside>

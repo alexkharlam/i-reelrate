@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function TitleInput({ value, setValue }) {
-  const maxCharacters = 35;
+  const maxCharacters = 50;
   const [isFocused, setIsFocused] = useState(false);
   const [charactersLeft, setCharactersLeft] = useState(maxCharacters);
 

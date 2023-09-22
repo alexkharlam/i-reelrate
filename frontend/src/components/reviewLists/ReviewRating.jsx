@@ -1,4 +1,4 @@
-import RatingIcon from "../RatingIcon";
+import RatingIcon from "../ui/icons/RatingIcon";
 
 function ReviewRating({ rating }) {
   return (

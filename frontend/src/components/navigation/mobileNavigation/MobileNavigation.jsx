@@ -2,7 +2,7 @@ import { Home, Search, User } from "react-feather";
 import MobileNavLink from "./MobileNavLink";
 import { useSelector } from "react-redux";
 
-function MobileNav() {
+function MobileNavigation() {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
   return (
@@ -15,4 +15,4 @@ function MobileNav() {
   );
 }
 
-export default MobileNav;
+export default MobileNavigation;

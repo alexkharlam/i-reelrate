@@ -2,10 +2,10 @@ import ReviewEditor from "../components/reviewEditor/ReviewEditor";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import LoadingModal from "../components/ui/LoadingModal";
 import { useNavigate } from "react-router-dom";
+import LoadingModal from "../components/ui/modals/LoadingModal";
 
-function CreateReview() {
+function CreateReviewPage() {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -26,7 +26,6 @@ function CreateReview() {
         url: "/api/reviews",
         data: reviewFormData,
       });
-      console.log(response);
 
       toast.success("Your review successfully created!", { toastId: "J" });
       setIsSubmitting(false);
@@ -53,4 +52,4 @@ function CreateReview() {
   );
 }
 
-export default CreateReview;
+export default CreateReviewPage;

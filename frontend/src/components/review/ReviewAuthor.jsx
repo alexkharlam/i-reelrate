@@ -1,4 +1,4 @@
-function ReviewAuthorIcon({ user }) {
+function ReviewAuthor({ user }) {
   return (
     <div className="flex gap-2 items-center">
       <img
@@ -11,4 +11,4 @@ function ReviewAuthorIcon({ user }) {
   );
 }
 
-export default ReviewAuthorIcon;
+export default ReviewAuthor;

@@ -2,11 +2,11 @@ import ReviewImage from "./ReviewImage";
 import ReviewRating from "./ReviewRating";
 import ReviewSubject from "./ReviewSubject";
 import ReviewText from "./ReviewText";
-import ReviewAuthorIcon from "./ReviewAuthorIcon";
+import ReviewAuthor from "./ReviewAuthor";
 import { useSelector } from "react-redux";
 import ReviewVerdict from "./ReviewVerdict";
 
-function ReviewItem({ reviewData }) {
+function Review({ reviewData }) {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
   return (
@@ -14,7 +14,7 @@ function ReviewItem({ reviewData }) {
       <ReviewSubject reviewData={reviewData} />
       <h1 className="mb-4 text-5xl">{reviewData.reviewTitle}</h1>
       <div className="flex justify-between text-gray-300 font-bold mb-2.5">
-        <ReviewAuthorIcon user={reviewData.user} />
+        <ReviewAuthor user={reviewData.user} />
         {isAuthenticated && <ReviewRating reviewData={reviewData} />}
       </div>
       <ReviewImage reviewData={reviewData} />
@@ -24,4 +24,4 @@ function ReviewItem({ reviewData }) {
   );
 }
 
-export default ReviewItem;
+export default Review;

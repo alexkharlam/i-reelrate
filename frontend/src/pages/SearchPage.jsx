@@ -1,6 +1,6 @@
-import LoadingSpinner from "../components/ui/LoadingSpinner";
-import ReviewList from "../components/ui/reviewList/ReviewList";
-import SearchInput from "../components/ui/search/SearchInput";
+import LoadingSpinner from "../components/ui/spinners/LoadingSpinner";
+import ReviewList from "../components/reviewLists/ReviewList";
+import SearchInput from "../components/search/SearchInput";
 import useSearch from "../hooks/useSearch";
 
 function SearchPage() {

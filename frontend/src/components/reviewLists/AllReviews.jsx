@@ -1,10 +1,10 @@
 import useReviews from "../../hooks/useReviews";
-import ReviewList from "../ui/reviewList/ReviewList";
-import CategoriesCloud from "../ui/CategoriesCloud";
-import SortDropdown from "../ui/SortDropdown";
-import LoadingSpinner from "../ui/LoadingSpinner";
+import CategoriesCloud from "../categoriesCloud/CategoriesCloud";
+import ReviewList from "./ReviewList";
+import SortDropdown from "../sortDropdown/SortDropdown";
+import LoadingSpinner from "../ui/spinners/LoadingSpinner";
 
-function ReviewsFullList({ title, user = false }) {
+function AllReviews({ title, user = false }) {
   const { isLoading, reviews, sortBy, setSortBy, category, setCategory } =
     useReviews({ user });
 
@@ -20,4 +20,4 @@ function ReviewsFullList({ title, user = false }) {
   );
 }
 
-export default ReviewsFullList;
+export default AllReviews;

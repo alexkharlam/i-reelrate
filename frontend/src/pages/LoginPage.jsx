@@ -1,12 +1,12 @@
-import LoginBlock from "../components/ui/LoginBlock";
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import LoginBlock from "../components/login/LoginBlock";
 
-function Login() {
+function LoginPage() {
   const { isAuthenticated } = useSelector((state) => state.auth);
   if (isAuthenticated) return <Navigate to="/" />;
 
   return <LoginBlock xl={true} />;
 }
 
-export default Login;
+export default LoginPage;

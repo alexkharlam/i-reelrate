@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import StarRatings from "react-star-ratings";
-import RatingIcon from "../ui/RatingIcon";
+import RatingIcon from "../ui/icons/RatingIcon";
 import axios from "axios";
 
 function ReviewRating({ reviewData }) {
