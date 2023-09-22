@@ -26,7 +26,6 @@ export default function useRating(reviewData) {
         method: "get",
         url: `/api/rates/getRating/${reviewData._id}`,
       });
-      console.log(res);
       setRating(res.data.rating);
     } catch (err) {
       toast.error(

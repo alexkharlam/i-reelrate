@@ -25,8 +25,8 @@ function ThemeMenu() {
       className="hover:text-primary hover:scale-105"
       onClick={() => setIsDarkTheme((theme) => !theme)}
     >
-      {isDarkTheme && <Sun />}
-      {!isDarkTheme && <Moon />}
+      {isDarkTheme && <Sun color="white" />}
+      {!isDarkTheme && <Moon color="white" />}
     </button>
   );
 }
