@@ -19,7 +19,7 @@ i18n
             provideFields: "Please provide all required fields",
           },
           cta: {
-            createReview: "Start creating your own reviews",
+            createReview: "Want to review something?",
           },
           reviews: {
             popular: "Trending now",
@@ -94,17 +94,17 @@ i18n
             provideFields: "Пожалуйста, заполните все нужные поля",
           },
           cta: {
-            createReview: "Начните создавать свои обзоры",
+            createReview: "Хотите рассказать о\u00A0чем-нибудь?",
           },
           reviews: {
-            popular: "В тренде",
+            popular: "В\u00A0тренде",
             myReviews: "Мои обзоры",
             allReviews: "Все обзоры",
             notFound:
-              "Мы не нашли обзоры, подходящие под фильтр. Пожалуйста, попробуйте поменять категорию",
+              "Мы не\u00A0нашли обзоры, подходящие под\u00A0фильтр. Пожалуйста, попробуйте поменять категорию",
           },
           sort: {
-            latest: "По дате ",
+            latest: "По дате",
             popular: "По популярности",
             rating: "По рейтингу",
           },
@@ -112,7 +112,8 @@ i18n
             title: "Искать обзоры",
             placeholder:
               "Пока нет результатов! Попробуйте напечатать что-то еще!",
-            notFound: "Мы не нашли обзоров по вашему запросу. Попробуйте еще!",
+            notFound:
+              "Мы не\u00A0нашли обзоров по\u00A0вашему запросу. Попробуйте еще!",
           },
           categories: {
             all: "Все",
@@ -142,7 +143,7 @@ i18n
             github: "Войти с Github",
             title: "ReelRate - войти в аккаунт",
             features: {
-              title: "И получите доступ ко всем функциям",
+              title: "И получите доступ ко\u00A0всем функциям",
               1: "Оценивайте обзоры",
               2: "Комментируйте",
               3: "Станьте автором",
