@@ -57,6 +57,8 @@ i18n
             searchButton: "Search",
           },
           login: {
+            google: "Log in with Google",
+            github: "Log in with Github",
             title: "ReelRate - log into your account",
             features: {
               title: "And get access to all features",
@@ -126,6 +128,8 @@ i18n
             searchButton: "Поиск",
           },
           login: {
+            google: "Войти с аккаунтом Google",
+            github: "Войти с аккаунтом Github",
             title: "ReelRate - войти в аккаунт",
             features: {
               title: "И получите доступ ко всем функциям",
