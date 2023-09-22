@@ -71,6 +71,7 @@ export const createReview = catchAsync(async (req, res, next) => {
 export const searchReviews = catchAsync(async (req, res, next) => {
   const { query } = req.body;
   if (!query) return next(new AppError("Query cannot be empty"));
+  console.log(query);
 
   const results = await Review.aggregate([
     {
@@ -98,6 +99,7 @@ export const searchReviews = catchAsync(async (req, res, next) => {
       },
     },
   ]);
+  console.log(results);
 
   res.status(200).json({
     status: "success",

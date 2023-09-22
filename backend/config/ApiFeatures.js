@@ -15,6 +15,14 @@ class ApiFeatures {
     return this;
   }
 
+  limit() {
+    const limit = this.queryString.limit * 1 || 100;
+
+    this.query = this.query.limit(limit);
+
+    return this;
+  }
+
   limitFields() {
     if (this.queryString.fields) {
       const fields = this.queryString.fields.split(",").join(" ");

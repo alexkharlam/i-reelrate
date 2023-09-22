@@ -1,10 +1,13 @@
 import { useCallback, useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
-export default function useReviews({ user = false }) {
+export default function useReviews({ user = false, initialSort }) {
   const [isLoading, setIsLoading] = useState(false);
-  const [sortBy, setSortBy] = useState("-createdAt");
+  const [sortBy, setSortBy] = useState(
+    initialSort ? initialSort : "-createdAt",
+  );
   const [category, setCategory] = useState("all");
   const [reviews, setReviews] = useState([]);
 
@@ -21,11 +24,12 @@ export default function useReviews({ user = false }) {
         setReviews(res.data.reviews);
         setIsLoading(false);
       } catch (err) {
-        console.log(err);
-        setIsLoading(false);
+        toast.error("Cannot get reviews, please try again!", {
+          toastId: "noData",
+        });
       }
     },
-    [sortBy, category],
+    [sortBy, category, user],
   );
 
   useEffect(() => {

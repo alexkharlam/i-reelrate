@@ -4,6 +4,7 @@ import LoginBlock from "../components/login/LoginBlock";
 import AllReviews from "../components/reviewLists/AllReviews";
 import { useTranslation } from "react-i18next";
 import CtaLink from "../components/cta/CtaLink";
+import PopularReviews from "../components/reviewLists/PopularReviews";
 
 function HomePage() {
   const { t } = useTranslation();
@@ -19,6 +20,7 @@ function HomePage() {
       )}
       {!isAuthenticated && <LoginBlock />}
 
+      <PopularReviews />
       <AllReviews title={t("reviews.allReviews")} />
     </div>
   );

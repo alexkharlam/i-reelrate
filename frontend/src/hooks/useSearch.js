@@ -7,7 +7,7 @@ export default function useSearch() {
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState([]);
   const { query: initialQuery } = useQueryString();
-  const [query, setQuery] = useState(initialQuery);
+  const [query, setQuery] = useState(initialQuery ? initialQuery : "");
 
   const makeRequest = useCallback(
     async function makeRequest() {
