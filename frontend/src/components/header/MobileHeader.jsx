@@ -3,10 +3,13 @@ import ThemeMenu from "../themeMenu/ThemeMenu";
 
 function MobileHeader() {
   return (
-    <header className="items-center p-2 text-black flex justify-between bg-gray-1000 dark:bg-transparent">
+    <header className="items-center text-white p-2 flex justify-between bg-gray-1000 dark:bg-gray-700">
       <img className="w-6" src="/logo/rrlogo.svg" />
-      <LanguageMenu />
-      <ThemeMenu />
+      <div className="flex gap-3 items-center">
+        <LanguageMenu />
+        <p>|</p>
+        <ThemeMenu />
+      </div>
     </header>
   );
 }
