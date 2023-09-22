@@ -1,46 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import StarRatings from "react-star-ratings";
 import RatingIcon from "../ui/icons/RatingIcon";
-import axios from "axios";
+import useRating from "../../hooks/useRating";
 
 function ReviewRating({ reviewData }) {
   const { t } = useTranslation();
-  const [rating, setRating] = useState(0);
+  const { initUserRating, rating, handleRate } = useRating(reviewData);
 
   useEffect(() => {
-    async function initUserRating() {
-      try {
-        const res = await axios({
-          url: `/api/rates/${reviewData._id}/userRate`,
-        });
-
-        if (res.data.rate) setRating(res.data.rate.rating);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-
     initUserRating();
   }, []);
-
-  async function updateUserRating(value) {
-    try {
-      await axios({
-        method: "post",
-        url: `/api/rates/${reviewData._id}`,
-        data: { rating: value },
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  function handleRate(newRating) {
-    setRating(newRating);
-
-    updateUserRating(newRating);
-  }
 
   return (
     <div className="flex gap-1 flex-col">

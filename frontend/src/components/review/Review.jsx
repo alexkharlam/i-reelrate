@@ -13,7 +13,7 @@ function Review({ reviewData }) {
     <>
       <ReviewSubject reviewData={reviewData} />
       <h1 className="mb-4 text-5xl">{reviewData.reviewTitle}</h1>
-      <div className="flex justify-between text-gray-300 font-bold mb-2.5">
+      <div className="flex md:flex-row flex-col md:gap-0 gap-1.5 justify-between text-secondary font-bold mb-2.5">
         <ReviewAuthor user={reviewData.user} />
         {isAuthenticated && <ReviewRating reviewData={reviewData} />}
       </div>

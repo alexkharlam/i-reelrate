@@ -1,6 +1,6 @@
 import { Star } from "react-feather";
 
-function RatingIcon({ rating }) {
+function RatingIcon({ rating, className }) {
   const { value: ratingValue, numRates } = rating;
 
   const color =
@@ -22,7 +22,7 @@ function RatingIcon({ rating }) {
     ratingValue % 1 === 0 ? ratingValue : ratingValue.toFixed(2);
 
   return (
-    <div className="flex gap-1 items-center  text-md font-bold text-white">
+    <div className={`flex gap-1 items-center  text-md font-bold ${className}`}>
       <p>{formattedRating}</p>
       <Star fill={color} color={color} size={18} />
       <p>({numRates})</p>
