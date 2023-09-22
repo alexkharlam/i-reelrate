@@ -10,7 +10,7 @@ import {
 const router = express.Router();
 
 router.post("/:reviewId", protect, createRating);
-router.get("/:reviewId/userRate", protect, getUsersRating);
-router.get("/:reviewId", protect, getRating);
+router.get("/getUserRate/:reviewId", protect, getUsersRating);
+router.get("/getRating/:reviewId", protect, getRating);
 
 export default router;

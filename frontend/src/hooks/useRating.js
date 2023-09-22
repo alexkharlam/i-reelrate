@@ -9,7 +9,7 @@ export default function useRating(reviewData) {
   async function initUserRating() {
     try {
       const res = await axios({
-        url: `/api/rates/${reviewData._id}/userRate`,
+        url: `/api/rates/getUserRate/${reviewData._id}`,
       });
 
       if (res.data.rate) setUserRate(res.data.rate.rating);
@@ -24,7 +24,7 @@ export default function useRating(reviewData) {
     try {
       const res = await axios({
         method: "get",
-        url: `/api/rates/${reviewData._id}`,
+        url: `/api/rates/getRating/${reviewData._id}`,
       });
       console.log(res);
       setRating(res.data.rating);
