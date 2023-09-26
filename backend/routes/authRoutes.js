@@ -39,16 +39,15 @@ router.get(
 
 router.get("/logout", logoutUser);
 
-router.get("/testAuth", (req, res) => {
-  console.log("hey");
-  signSendToken(res, {
-    _id: "650874cb6c7d0b5f2c9b67dc",
-    name: "Alex Kharlamov",
-    email: "aakharlam@gmail.com",
-    role: "user",
-  });
+// router.get("/testAuth", (req, res) => {
+//   signSendToken(res, {
+//     _id: "650874cb6c7d0b5f2c9b67dc",
+//     name: "Alex Kharlamov",
+//     email: "aakharlam@gmail.com",
+//     role: "user",
+//   });
 
-  res.status(200).json({ status: "success" });
-});
+//   res.status(200).json({ status: "success" });
+// });
 
 export default router;
