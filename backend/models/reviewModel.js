@@ -8,12 +8,12 @@ const reviewSchema = new mongoose.Schema({
     default:
       "https://res.cloudinary.com/dl3mrqdyz/image/upload/v1695263924/defaults/coverImageDefault_zjctsl.svg",
   },
-  reviewTitle: { type: String, required: true, maxlength: 70 },
-  subjectTitle: { type: String, required: true },
+  title: { type: String, required: true, maxlength: 50 },
+  product: { type: String, required: true, maxLength: 50 },
   createdAt: { type: Date, default: Date.now },
   category: { type: String, enum: validCategories, required: true },
   tags: [{ type: String, maxlength: 22 }],
-  reviewText: { type: String, required: true },
+  text: { type: String, required: true },
   verdict: { type: Number, min: 1, max: 10, required: true },
   user: {
     type: mongoose.Schema.ObjectId,

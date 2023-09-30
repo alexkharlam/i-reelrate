@@ -28,9 +28,9 @@ function ReviewEditor({ initialValues, onSubmit, isSubmitting }) {
 
     reviewFormData.append("category", category);
     reviewFormData.append("file", imgFile);
-    reviewFormData.append("reviewText", mdValue);
-    reviewFormData.append("subjectTitle", subjectTitle);
-    reviewFormData.append("reviewTitle", title);
+    reviewFormData.append("text", mdValue);
+    reviewFormData.append("product", subjectTitle);
+    reviewFormData.append("title", title);
     reviewFormData.append("verdict", verdict);
 
     onSubmit(reviewFormData);
