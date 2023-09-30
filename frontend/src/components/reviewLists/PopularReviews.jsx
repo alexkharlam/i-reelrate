@@ -1,9 +1,17 @@
-import usePopularReviews from "../../hooks/usePopularReviews";
+import { useEffect, useState } from "react";
 import LoadingSpinner from "../ui/spinners/LoadingSpinner";
 import ReviewList from "./ReviewList";
+import useHttp from "../../hooks/useHttp";
 
 function PopularReviews() {
-  const { isLoading, reviews } = usePopularReviews();
+  const [reviews, setReviews] = useState([]);
+  const { makeRequest, isLoading } = useHttp();
+
+  useEffect(() => {
+    makeRequest(`/api/reviews?sort=-rating.numRates&limit=3`, (data) =>
+      setReviews(data?.reviews),
+    );
+  }, [makeRequest]);
 
   return (
     <div className="mb-3.5">

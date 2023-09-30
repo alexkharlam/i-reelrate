@@ -9,7 +9,6 @@ import {
   logoutUser,
   startAuth,
 } from "../controllers/authController/authController.js";
-import { signSendToken } from "../controllers/authController/jwtController.js";
 
 const router = express.Router();
 
@@ -41,7 +40,7 @@ router.get("/logout", logoutUser);
 
 // router.get("/testAuth", (req, res) => {
 //   signSendToken(res, {
-//     _id: "650874cb6c7d0b5f2c9b67dc",
+//     _id: "650dafee9ffd801e0bae1237",
 //     name: "Alex Kharlamov",
 //     email: "aakharlam@gmail.com",
 //     role: "user",

@@ -34,6 +34,7 @@ sanitization(app);
 app.use(compression());
 
 app.use("/auth", authRoutes);
+
 app.use("/api/user", userRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/rates", rateRoutes);

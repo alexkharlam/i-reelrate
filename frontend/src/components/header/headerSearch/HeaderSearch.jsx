@@ -7,7 +7,9 @@ function HeaderSearch() {
   const location = useLocation();
   const isSearchPage = location.pathname === "/search";
 
-  const handleSubmit = (query) => navigate(`/search?query=${query}`);
+  function handleSubmit(query) {
+    navigate(`/search?query=${query}`);
+  }
 
   return (
     <div className="lg:max-w-xl max-w-full md:max-w-sm w-full">
