@@ -1,33 +1,33 @@
 import axios from "axios";
 import { useCallback, useState } from "react";
-import { toast } from "react-toastify";
 
 export default function useHttp() {
-  const [isLoading, setIsLoading] = useState();
-  const [isError, setIsError] = useState();
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-  const makeRequest = useCallback(async (url, submitData, options) => {
-    setIsLoading(true);
-    setIsError(false);
+    const makeRequest = useCallback(async (url, submitData, options) => {
+        setIsLoading(true);
+        setError(null);
+        try {
+            const res = await axios({
+                url,
+                ...options,
+            });
 
-    try {
-      const res = await axios({
-        url,
-        options: options || null,
-      });
+            setIsLoading(false);
 
-      setIsLoading(false);
+            submitData(res.data);
+        } catch (err) {
+            setIsLoading(false);
 
-      submitData(res.data);
-    } catch (err) {
-      setIsLoading(false);
-      setIsError(true);
+            const errorMessage =
+                err?.response?.data?.message ||
+                err?.message ||
+                "Error! Please try again";
 
-      toast.error(
-        err?.data?.message || err?.message || "Something went wrong!",
-      );
-    }
-  }, []);
+            setError(errorMessage);
+        }
+    }, []);
 
-  return { makeRequest, isLoading, isError };
+    return { makeRequest, isLoading, error };
 }

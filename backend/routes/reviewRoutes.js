@@ -2,12 +2,12 @@ import express from "express";
 
 import { protect } from "../controllers/authController/authController.js";
 import {
-  createReview,
-  getReview,
-  getAllReviews,
-  uploadUserPhoto,
-  searchReviews,
-  getUserReviews,
+    createReview,
+    getReview,
+    getAllReviews,
+    uploadUserPhoto,
+    searchReviews,
+    getUserReviews,
 } from "../controllers/reviewController/reviewController.js";
 
 import commentRoutes from "./commentRoutes.js";
@@ -21,7 +21,5 @@ router.get("/", getAllReviews);
 router.post("/", protect, uploadUserPhoto, createReview);
 
 router.use("/:reviewId/comments", commentRoutes);
-
-// TEST
 
 export default router;

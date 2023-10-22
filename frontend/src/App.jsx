@@ -1,39 +1,23 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import Layout from "./components/layout/Layout";
+import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
-import { setUser } from "./store/authSlice";
-import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useInitUser } from "./features/Auth";
+import Container from "./layouts/Container";
 
 function App() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+    const { initUser } = useInitUser();
 
-  function checkAuth() {
-    const params = new URLSearchParams(location.search);
-    const userParam = params.get("user");
-    if (!userParam) return;
+    useEffect(() => initUser(), []);
 
-    const userData = JSON.parse(decodeURIComponent(userParam));
-    navigate(window.location.pathname);
-    dispatch(setUser(userData));
-    localStorage.setItem("user", JSON.stringify(userData));
-  }
-
-  useEffect(() => {
-    checkAuth();
-  }, []);
-
-  return (
-    <>
-      <ToastContainer />
-      <Layout>
-        <Outlet />
-      </Layout>
-    </>
-  );
+    return (
+        <>
+            <ToastContainer />
+            <Container>
+                <Outlet />
+            </Container>
+        </>
+    );
 }
 
 export default App;

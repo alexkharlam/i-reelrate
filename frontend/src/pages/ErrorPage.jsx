@@ -1,5 +1,11 @@
+import Container from "../layouts/Container";
+
 function ErrorPage() {
-  return <p className="text-2xl">Oops, something went wrong!</p>;
+    return (
+        <Container>
+            <p className='m-3 text-base font-semibold'>Page not found!</p>
+        </Container>
+    );
 }
 
 export default ErrorPage;
