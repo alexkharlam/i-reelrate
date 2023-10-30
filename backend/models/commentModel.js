@@ -19,6 +19,15 @@ const commentSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
+commentSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: "user",
+    select: "name photo",
+  });
+
+  next();
+});
+
 const Comment = mongoose.model("Comment", commentSchema);
 
 export default Comment;

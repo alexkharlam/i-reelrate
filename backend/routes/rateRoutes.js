@@ -2,10 +2,10 @@ import express from "express";
 
 import { protect } from "../controllers/authController/authController.js";
 import {
-    createRating,
-    getUsersRating,
-    getRating,
-    deleteRating,
+  createRating,
+  getUsersRating,
+  getRating,
+  deleteRating,
 } from "../controllers/rateController/rateController.js";
 
 const router = express.Router();

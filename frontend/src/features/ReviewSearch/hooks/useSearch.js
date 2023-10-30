@@ -2,17 +2,21 @@ import { useCallback } from "react";
 import useHttp from "../../../hooks/useHttp";
 
 export default function useSearch() {
-    const { makeRequest, isLoading, error } = useHttp();
+  const { makeRequest, isLoading, error } = useHttp();
 
-    const searchReviews = useCallback(
-        function (query, submitData) {
-            makeRequest("/api/reviews/search", submitData, {
-                method: "post",
-                data: { query },
-            });
+  const searchReviews = useCallback(
+    function (query, submitData) {
+      makeRequest({
+        url: "/api/reviews/search",
+        callback: submitData,
+        options: {
+          method: "post",
+          data: { query },
         },
-        [makeRequest]
-    );
+      });
+    },
+    [makeRequest],
+  );
 
-    return { searchReviews, isLoading, error };
+  return { searchReviews, isLoading, error };
 }

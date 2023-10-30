@@ -10,7 +10,10 @@ export const UserScoreProvider = ({ reviewId, children }) => {
   async function getUserScore() {
     const submitData = (data) => setUserScore(data?.rate?.rating || null);
 
-    await makeRequest(`/api/rates/getUserRate/${reviewId}`, submitData);
+    await makeRequest({
+      url: `/api/rates/getUserRate/${reviewId}`,
+      callback: submitData,
+    });
   }
 
   async function updateUserScore(value) {
@@ -18,17 +21,25 @@ export const UserScoreProvider = ({ reviewId, children }) => {
 
     const submitData = () => setUserScore(value);
 
-    await makeRequest(`/api/rates/${reviewId}`, submitData, {
-      method: "post",
-      data: { rating: value },
+    await makeRequest({
+      url: `/api/rates/${reviewId}`,
+      callback: submitData,
+      options: {
+        method: "post",
+        data: { rating: value },
+      },
     });
   }
 
   async function deleteUserScore() {
     const submitData = () => setUserScore(null);
 
-    makeRequest(`/api/rates/${reviewId}`, submitData, {
-      method: "delete",
+    makeRequest({
+      url: `/api/rates/${reviewId}`,
+      callback: submitData,
+      options: {
+        method: "delete",
+      },
     });
   }
 

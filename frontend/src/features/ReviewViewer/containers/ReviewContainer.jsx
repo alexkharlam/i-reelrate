@@ -6,24 +6,24 @@ import LoadingSpinner from "../../../components/ui/spinners/LoadingSpinner";
 import CenteredText from "../../../components/ui/messages/CenteredText";
 
 function ReviewContainer({ id }) {
-    const { makeRequest, isLoading, error } = useHttp();
-    const { updateReviewContext, review } = useContext(ReviewContext);
+  const { makeRequest, isLoading, error } = useHttp();
+  const { updateReviewContext, review } = useContext(ReviewContext);
 
-    useEffect(() => {
-        const submitData = (data) => updateReviewContext(data?.review);
-        makeRequest(`/api/reviews/${id}`, submitData);
-    }, [id, makeRequest, updateReviewContext]);
+  useEffect(() => {
+    const submitData = (data) => updateReviewContext(data?.review);
+    makeRequest({ url: `/api/reviews/${id}`, callback: submitData });
+  }, [id, makeRequest, updateReviewContext]);
 
-    if (isLoading) return <LoadingSpinner />;
+  if (isLoading) return <LoadingSpinner />;
 
-    if (review) return <Review id={review._id} />;
+  if (review) return <Review id={review._id} />;
 
-    if (error)
-        return (
-            <CenteredText additionalText={error}>
-                Oops! For some reason we cannot get review!
-            </CenteredText>
-        );
+  if (error)
+    return (
+      <CenteredText additionalText={error}>
+        Oops! For some reason we cannot get review!
+      </CenteredText>
+    );
 }
 
 export default ReviewContainer;

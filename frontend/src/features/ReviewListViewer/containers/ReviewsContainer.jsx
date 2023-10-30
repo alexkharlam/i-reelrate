@@ -5,20 +5,25 @@ import LoadingSpinner from "../../../components/ui/spinners/LoadingSpinner";
 import ReviewsList from "../../../components/ReviewsList";
 
 function ReviewsContainer() {
-    const { reviews, isLoading, error } = useContext(ReviewsContext);
+  const { reviews, isLoading, error } = useContext(ReviewsContext);
 
-    if (isLoading) return <LoadingSpinner />;
+  if (isLoading) return <LoadingSpinner />;
 
-    if (reviews.length > 0) return <ReviewsList reviews={reviews} />;
+  if (reviews.length > 0)
+    return (
+      <>
+        <ReviewsList reviews={reviews} />
+      </>
+    );
 
-    if (error)
-        return (
-            <CenteredText additionalText={error}>
-                For some reason we cannot get reviews. Please try again!
-            </CenteredText>
-        );
+  if (error)
+    return (
+      <CenteredText additionalText={error}>
+        For some reason we cannot get reviews. Please try again!
+      </CenteredText>
+    );
 
-    return <CenteredText>No reviews found!</CenteredText>;
+  return <CenteredText>No reviews found!</CenteredText>;
 }
 
 export default ReviewsContainer;

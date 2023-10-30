@@ -5,9 +5,9 @@ import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 
 import providersConfig from "../config/providersConfig.js";
 import {
-    handleAuthCallback,
-    logoutUser,
-    startAuth,
+  handleAuthCallback,
+  logoutUser,
+  startAuth,
 } from "../controllers/authController/authController.js";
 
 const router = express.Router();
@@ -18,22 +18,22 @@ passport.use(new GithubStrategy(providersConfig.github, startAuth));
 router.get("/github", passport.authenticate("github"));
 
 router.get(
-    "/github/callback",
-    passport.authenticate("github", { session: false }),
-    handleAuthCallback
+  "/github/callback",
+  passport.authenticate("github", { session: false }),
+  handleAuthCallback
 );
 
 router.get(
-    "/google",
-    passport.authenticate("google", {
-        scope: ["profile", "email"],
-    })
+  "/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+  })
 );
 
 router.get(
-    "/google/callback",
-    passport.authenticate("google", { session: false }),
-    handleAuthCallback
+  "/google/callback",
+  passport.authenticate("google", { session: false }),
+  handleAuthCallback
 );
 
 router.get("/logout", logoutUser);

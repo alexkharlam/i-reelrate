@@ -1,7 +1,7 @@
 import {
-    createBrowserRouter,
-    createRoutesFromElements,
-    Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
 } from "react-router-dom";
 
 import PrivateRoute from "./components/PrivateRoute";
@@ -14,23 +14,25 @@ import TestPage from "./pages/TestPage";
 import ErrorPage from "./pages/ErrorPage";
 import App from "./App";
 import CreateReview from "./pages/CreateReview";
+import FavouriteReviews from "./pages/FavouriteReviews";
 
 const router = createBrowserRouter(
-    createRoutesFromElements(
-        <Route path='/' element={<App />} errorElement={<ErrorPage />}>
-            <Route index={true} path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/about' element={<p>About screen</p>} />
-            <Route path='/test' element={<TestPage />} />
-            <Route path='/search' element={<Search />} />
-            <Route path='/reviews/:id' element={<Review />} />
+  createRoutesFromElements(
+    <Route path="/" element={<App />} errorElement={<ErrorPage />}>
+      <Route index={true} path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/about" element={<p>About screen</p>} />
+      <Route path="/test" element={<TestPage />} />
+      <Route path="/search" element={<Search />} />
+      <Route path="/reviews/:id" element={<Review />} />
 
-            <Route path='' element={<PrivateRoute />}>
-                <Route path='/reviews/create' element={<CreateReview />} />
-                <Route path='/profile/reviews' element={<MyReviews />} />
-            </Route>
-        </Route>
-    )
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/reviews/create" element={<CreateReview />} />
+        <Route path="/profile/reviews" element={<MyReviews />} />
+        <Route path="/profile/favourites" element={<FavouriteReviews />} />
+      </Route>
+    </Route>,
+  ),
 );
 
 export default router;

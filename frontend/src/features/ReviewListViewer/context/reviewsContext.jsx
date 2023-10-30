@@ -4,42 +4,42 @@ import useHttp from "../../../hooks/useHttp";
 export const ReviewsContext = createContext();
 
 export const ReviewsProvider = ({ query, children }) => {
-    const { makeRequest, isLoading, error } = useHttp();
-    const [reviews, setReviews] = useState([]);
+  const { makeRequest, isLoading, error } = useHttp();
+  const [reviews, setReviews] = useState([]);
 
-    const initialFilter = {
-        sortBy: query?.sortBy || "-createdAt",
-        category: query?.category || null,
-        limit: query?.limit || null,
-        user: query?.user || null,
+  const initialFilter = {
+    sortBy: query?.sortBy || "-createdAt",
+    category: query?.category || null,
+    limit: query?.limit || null,
+    user: query?.user || null,
+  };
+
+  const [filter, setFilter] = useState(initialFilter);
+
+  const updateFilter = useCallback((filter) => {
+    setFilter((prev) => ({ ...prev, ...filter }));
+  }, []);
+
+  useEffect(() => {
+    const submitData = (data) => {
+      if (data?.reviews) setReviews(data.reviews);
     };
 
-    const [filter, setFilter] = useState(initialFilter);
+    const { sortBy, category, limit, user } = filter;
 
-    const updateFilter = useCallback((filter) => {
-        setFilter((prev) => ({ ...prev, ...filter }));
-    }, []);
+    makeRequest({
+      url: `/api/reviews?sort=${sortBy || ""}&category=${
+        category || ""
+      }&limit=${limit || ""}&user=${user || ""}`,
+      callback: submitData,
+    });
+  }, [makeRequest, filter]);
 
-    useEffect(() => {
-        const submitData = (data) => {
-            if (data?.reviews) setReviews(data.reviews);
-        };
-
-        const { sortBy, category, limit, user } = filter;
-
-        makeRequest(
-            `/api/reviews?sort=${sortBy || ""}&category=${
-                category || ""
-            }&limit=${limit || ""}&user=${user || ""}`,
-            submitData
-        );
-    }, [makeRequest, filter]);
-
-    return (
-        <ReviewsContext.Provider
-            value={{ reviews, isLoading, error, filter, updateFilter }}
-        >
-            {children}
-        </ReviewsContext.Provider>
-    );
+  return (
+    <ReviewsContext.Provider
+      value={{ reviews, isLoading, error, filter, updateFilter }}
+    >
+      {children}
+    </ReviewsContext.Provider>
+  );
 };

@@ -12,6 +12,8 @@ import expressHelpers from "./middleware/expressHelpers.js";
 import sanitization from "./middleware/sanitization.js";
 import security from "./middleware/security.js";
 import authRoutes from "./routes/authRoutes.js";
+import commentRoutes from "./routes/commentRoutes.js";
+import likeRoutes from "./routes/likeRoutes.js";
 import rateRoutes from "./routes/rateRoutes.js";
 import reviewRoutes from "./routes/reviewRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -38,6 +40,8 @@ app.use("/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/rates", rateRoutes);
+app.use("/api/comments", commentRoutes);
+app.use("/api/likes", likeRoutes);
 
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "/frontend/dist")));

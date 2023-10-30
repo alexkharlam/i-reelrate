@@ -15,6 +15,17 @@ i18n
     resources: {
       en: {
         translation: {
+          favourites: {
+            favourites: "Favourite reviews",
+            addTo: "Add to favourites",
+            deleteFrom: "Delete from favourites",
+          },
+          rate: {
+            rate: "Rate this review",
+            rates: "rates",
+            deleteRate: "Delete my rate",
+            changeRate: "Change your rate",
+          },
           reviewList: {
             popular: "Trending now",
             myReviews: "My reviews",
@@ -58,6 +69,7 @@ i18n
             topReviews: "Top reviews",
             createReview: "Create review",
             myReviews: "My reviews",
+            favourites: "Favourites",
             search: "Search",
           },
           header: {
@@ -81,6 +93,7 @@ i18n
             rating: "Rating",
             yourRating: "Your rating:",
             didYouLike: "Did you like this review?",
+            verdict: "verdict",
           },
           editReview: {
             coverImage: "Cover image",
@@ -93,10 +106,26 @@ i18n
             submit: "Submit review",
             reset: "Reset",
           },
+          comments: {
+            comments: "Comments",
+            placeholder: "Write comment here...",
+            submitComment: "Comment",
+          },
         },
       },
       ru: {
         translation: {
+          favourites: {
+            favourites: "Избранные обзоры",
+            addTo: "Добавить в избранное",
+            deleteFrom: "Удалить из избранного",
+          },
+          rate: {
+            rate: "Оценить обзор",
+            rates: "Оценок",
+            deleteRate: "Удалить оценку",
+            changeRate: "Изменить оценку",
+          },
           reviewList: {
             popular: "В\u00A0тренде",
             myReviews: "Мои обзоры",
@@ -142,6 +171,7 @@ i18n
             topReviews: "Лучшие обзоры",
             createReview: "Создать обзор",
             myReviews: "Мои обзоры",
+            favourites: "Избранные обзоры",
             search: "Поиск",
           },
           header: {
@@ -165,6 +195,7 @@ i18n
             rating: "Рейтинг",
             yourRating: "Ваша оценка:",
             didYouLike: "Понравился обзор?",
+            verdict: "вердикт",
           },
           editReview: {
             coverImage: "Шапка (изображение)",
@@ -176,6 +207,11 @@ i18n
             verdict: "Оценка произведения",
             submit: "Поделиться обзором",
             reset: "Сбросить",
+          },
+          comments: {
+            comments: "Комментарии",
+            placeholder: "Написать комментарий",
+            submitComment: "Отправить",
           },
         },
       },
