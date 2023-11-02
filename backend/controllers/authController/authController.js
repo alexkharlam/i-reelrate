@@ -33,7 +33,7 @@ export const handleAuthCallback = (req, res) => {
     })
   );
 
-  const urlProtocol = process.env.URL_PROTOCOl;
+  const urlProtocol = process.env.URL_PROTOCOL;
   const urlDomainName = process.env.URL_DOMAIN_NAME;
   res.redirect(`${urlProtocol}://${urlDomainName}?user=${userParam}`);
 };
