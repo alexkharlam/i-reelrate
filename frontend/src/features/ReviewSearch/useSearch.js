@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import useHttp from "../../../hooks/useHttp";
+import useHttp from "../../hooks/useHttp";
 
 export default function useSearch() {
   const { makeRequest, isLoading, error } = useHttp();

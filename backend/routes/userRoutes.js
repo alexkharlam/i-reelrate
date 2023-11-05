@@ -1,10 +1,14 @@
 import express from "express";
 
 import { protect } from "../controllers/authController/authController.js";
-import { getUser } from "../controllers/userController/userController.js";
+import {
+  deleteUser,
+  getUser,
+} from "../controllers/userController/userController.js";
 
 const router = express.Router();
 
-router.get("/getUser", protect, getUser);
+router.get("/", protect, getUser);
+router.delete("/deleteMe", protect, deleteUser);
 
 export default router;

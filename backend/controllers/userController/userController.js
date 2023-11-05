@@ -1,3 +1,10 @@
+import Comment from "../../models/commentModel.js";
+import Like from "../../models/likeModel.js";
+import Rate from "../../models/rateModel.js";
+import Review from "../../models/reviewModel.js";
+import User from "../../models/userModel.js";
+import catchAsync from "../../utils/catchAsync.js";
+
 export const getUser = (req, res) => {
   if (!req.user)
     return res.status(200).json({
@@ -18,4 +25,16 @@ export const getUser = (req, res) => {
   });
 };
 
-export const f = "";
+export const deleteUser = catchAsync(async (req, res) => {
+  const userId = req.user._id;
+
+  await Comment.deleteMany({ user: userId });
+  await Like.deleteMany({ user: userId });
+  await Rate.deleteMany({ user: userId });
+  await Review.deleteMany({ user: userId });
+  await User.findByIdAndDelete(userId);
+
+  res.status(204).json({
+    data: null,
+  });
+});
