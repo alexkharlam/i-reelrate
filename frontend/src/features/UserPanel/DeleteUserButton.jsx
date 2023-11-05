@@ -11,7 +11,10 @@ function DeleteUser() {
   const { handleLogout } = useLoginLogout();
 
   async function deleteUser() {
-    await makeRequest({ url: "/api/user/deleteMe", method: "delete" });
+    await makeRequest({
+      url: "/api/user/deleteMe",
+      options: { method: "delete" },
+    });
 
     handleLogout();
   }
