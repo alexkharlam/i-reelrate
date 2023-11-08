@@ -1,8 +1,8 @@
 import { useCallback } from "react";
-import useHttp from "../../hooks/useHttp";
+import useApi from "../../hooks/useApi";
 
 export default function useSearch() {
-  const { makeRequest, isLoading, error } = useHttp();
+  const { makeRequest, isLoading, error } = useApi();
 
   const searchReviews = useCallback(
     function (query, submitData) {

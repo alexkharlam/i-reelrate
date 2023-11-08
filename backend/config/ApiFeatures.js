@@ -5,8 +5,8 @@ class ApiFeatures {
   }
 
   sort() {
-    if (this.queryString.sort) {
-      const sortBy = this.queryString.sort.split(",").join(" ");
+    if (this.queryString.sortBy) {
+      const sortBy = this.queryString.sortBy.split(",").join(" ");
       this.query = this.query.sort(sortBy);
     } else {
       this.query = this.query.sort("-createdAt");

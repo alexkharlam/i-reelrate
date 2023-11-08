@@ -24,7 +24,9 @@ function Home() {
       )}
 
       <h3>{t("reviews.popular")}</h3>
-      <ReviewListViewer query={{ limit: 3, sortBy: "-rating.numRates" }} />
+      <ReviewListViewer
+        initialQuery={{ limit: 3, sortBy: "-rating.numRates" }}
+      />
       <h3 className="mb-3 mt-4">{t("reviews.allReviews")}</h3>
       <ReviewListViewer enableCategoryFilter={true} enableSorting={true} />
     </div>

@@ -1,9 +1,9 @@
-import DeleteUserButton from "./DeleteUserButton";
+import UserInfo from "./UserInfo";
 
 function UserPanel() {
   return (
-    <div>
-      <DeleteUserButton />
+    <div className="mb-3.5">
+      <UserInfo />
     </div>
   );
 }

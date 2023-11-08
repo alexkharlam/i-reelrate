@@ -10,7 +10,7 @@ function MyReviews() {
 
   return (
     <>
-      <h3>Hello, {user.name}</h3>
+      <h3>{t("userPanel.title")}</h3>
       <UserPanel />
 
       <h3 className="text-1xl mb-2">{t("reviews.myReviews")}</h3>

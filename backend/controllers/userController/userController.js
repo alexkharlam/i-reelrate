@@ -5,7 +5,7 @@ import Review from "../../models/reviewModel.js";
 import User from "../../models/userModel.js";
 import catchAsync from "../../utils/catchAsync.js";
 
-export const getUser = (req, res) => {
+export const getUser = catchAsync(async (req, res) => {
   if (!req.user)
     return res.status(200).json({
       status: "success",
@@ -13,17 +13,20 @@ export const getUser = (req, res) => {
       message: "Not authenticated",
     });
 
+  const reviewsQuantity = await Review.countDocuments({ user: req.user._id });
+
   res.status(200).json({
     status: "success",
     isAuthenticated: true,
     user: {
+      reviewsQuantity,
       role: req.user.role,
       name: req.user.name,
       email: req.user.email,
       photo: req.user.photo,
     },
   });
-};
+});
 
 export const deleteUser = catchAsync(async (req, res) => {
   const userId = req.user._id;

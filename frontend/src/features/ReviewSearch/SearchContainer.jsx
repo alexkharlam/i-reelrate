@@ -14,7 +14,7 @@ function SearchContainer() {
     if (!inputValue) return;
 
     const identifier = setTimeout(() => {
-      searchReviews(inputValue, (data) => setResults(data?.results));
+      searchReviews(inputValue, (res) => setResults(res.data?.results));
     }, 1000);
 
     return () => clearTimeout(identifier);

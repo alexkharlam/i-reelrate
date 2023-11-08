@@ -15,6 +15,21 @@ i18n
     resources: {
       en: {
         translation: {
+          userPanel: {
+            title: "Manage account",
+            name: "Name",
+            email: "email",
+            role: "role",
+            totalReviews: "Total reviews",
+            logoutButton: "Logout",
+            deleteAccountButton: "Delete account",
+            deleteWarning1: "Are you sure you want to delete your account?",
+            deleteWarning2:
+              "This action will remove all your reviews, likes, comments andrates. Account will be permanently deleted from the database",
+
+            deleteWarning3: "You can register again with the same email",
+            deleteWarning4: "Note: this is a destrictive action!",
+          },
           favourites: {
             favourites: "Favourite reviews",
             addTo: "Add to favourites",
@@ -115,8 +130,22 @@ i18n
       },
       ru: {
         translation: {
+          userPanel: {
+            title: "Ваш аккаунт",
+            name: "Имя",
+            email: "Почта",
+            role: "Роль",
+            totalReviews: "Всего обзоров",
+            logoutButton: "Выйти",
+            deleteAccountButton: "Удалить аккаунт",
+            deleteWarning1: "Вы уверены, что хотите удалить аккаунт?",
+            deleteWarning2:
+              "Это действие удалит все ваши отзывы, лайки, комментарии и оценки. Аккаунт будет удален из базы данных навсегда.",
+            deleteWarning3: "Вы можете зарегистрироваться снова",
+            deleteWarning4: "Обратите внимание: это действие нельзя отменить",
+          },
           favourites: {
-            favourites: "Избранные обзоры",
+            favourites: "Избранное",
             addTo: "Добавить в избранное",
             deleteFrom: "Удалить из избранного",
           },
