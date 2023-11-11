@@ -1,7 +1,7 @@
-import ReviewCreation from "../features/ReviewCreation";
+import ReviewCreator from "../features/ReviewCreator";
 
 function CreateReview() {
-    return <ReviewCreation />;
+  return <ReviewCreator />;
 }
 
 export default CreateReview;

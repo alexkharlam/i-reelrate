@@ -47,7 +47,10 @@ i18n
             allReviews: "All reviews",
           },
           errors: {
+            generic: "Unknown error, please try again!",
             provideFields: "Please provide all required fields",
+            403: "Only for registered users. Please sign in",
+            404: "404 - Not found",
           },
           cta: {
             createReview: "Want to review something?",
@@ -161,6 +164,9 @@ i18n
             allReviews: "Все обзоры",
           },
           errors: {
+            generic: "Неизвестная ошибка, попробуйте перезагрузить страницу!",
+            403: "Только для зарегестрированных пользователей. Пожалуйста, войдите в аккаунт",
+            404: "404 - Не найдено",
             provideFields: "Пожалуйста, заполните все нужные поля",
           },
           cta: {

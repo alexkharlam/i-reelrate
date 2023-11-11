@@ -7,6 +7,7 @@ import {
   getReview,
   searchReviews,
   getReviews,
+  deleteReview,
 } from "../controllers/reviewController/reviewController.js";
 
 import commentRoutes from "./commentRoutes.js";
@@ -14,6 +15,7 @@ import commentRoutes from "./commentRoutes.js";
 const router = express.Router();
 
 router.get("/", getReviews);
+router.delete("/:id", protect, deleteReview);
 router.post("/search", searchReviews);
 router.get("/:id", getReview);
 router.post("/", protect, addImageToBuffer, createReview);

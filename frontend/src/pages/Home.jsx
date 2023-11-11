@@ -28,7 +28,11 @@ function Home() {
         initialQuery={{ limit: 3, sortBy: "-rating.numRates" }}
       />
       <h3 className="mb-3 mt-4">{t("reviews.allReviews")}</h3>
-      <ReviewListViewer enableCategoryFilter={true} enableSorting={true} />
+      <ReviewListViewer
+        enableCategoryFilter={true}
+        enableSorting={true}
+        enablePagination={true}
+      />
     </div>
   );
 }

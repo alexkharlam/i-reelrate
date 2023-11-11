@@ -1,8 +1,14 @@
+import dotenv from "dotenv";
+
 import ApiFeatures from "../../config/ApiFeatures.js";
+import Like from "../../models/likeModel.js";
 import Review from "../../models/reviewModel.js";
 import catchAsync from "../../utils/catchAsync.js";
 import { uploadImageBuffer } from "../../utils/cloudinaryUpload.js";
 import AppError from "../errorController/AppError.js";
+
+dotenv.config();
+const { DEFAULT_PAGE_LIMIT } = process.env;
 
 function getQueryFilter(query) {
   const { category, user } = query;
@@ -18,12 +24,14 @@ function getQueryFilter(query) {
 export const getReviews = catchAsync(async (req, res, next) => {
   const queryFilter = getQueryFilter(req.query);
 
-  const reviewsLength = await Review.countDocuments({ queryFilter });
-  const totalPages = Math.ceil(reviewsLength / (req.query.limit || 5));
+  const reviewsLength = await Review.countDocuments(queryFilter);
+
+  const pageLimit = req.query.limit || DEFAULT_PAGE_LIMIT;
+  const totalPages = Math.ceil(reviewsLength / pageLimit);
 
   const reviewPromise = new ApiFeatures(Review.find(queryFilter), req.query)
     .sort()
-    .limit()
+    .paginate()
     .limitFields();
 
   const reviews = await reviewPromise.query;
@@ -32,6 +40,26 @@ export const getReviews = catchAsync(async (req, res, next) => {
     results: reviewsLength,
     totalPages,
     reviews,
+    page: +req.query.page || 1,
+  });
+});
+
+export const getLikedReviews = catchAsync(async (req, res, next) => {
+  const userLikes = await Like.find({ user: req.user?._id }).populate({
+    path: "review",
+    select: "-text",
+  });
+
+  const likedReviews = userLikes.map((like) => like.review);
+
+  const reviewsLength = likedReviews.length;
+
+  const totalPages = Math.ceil(reviewsLength / DEFAULT_PAGE_LIMIT);
+
+  res.status(200).json({
+    results: reviewsLength,
+    totalPages,
+    likes: likedReviews,
   });
 });
 
@@ -99,5 +127,21 @@ export const searchReviews = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     results,
+  });
+});
+
+export const deleteReview = catchAsync(async (req, res, next) => {
+  const review = await Review.findOne({
+    _id: req.params.id,
+    user: req.user._id,
+  });
+
+  if (!review)
+    return next(new AppError("Review must exist and belong to a user", 400));
+
+  await Review.findByIdAndRemove(review._id);
+
+  res.status(204).json({
+    review: null,
   });
 });

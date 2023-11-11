@@ -6,7 +6,7 @@ import Modal from "../../components/ui/Modal";
 import LoadingSpinner from "../../components/ui/spinners/LoadingSpinner";
 import { useTranslation } from "react-i18next";
 
-function UserRemover() {
+function UserRemoveButton() {
   const { t } = useTranslation();
   const { deleteUser, isLoading, error } = useDeleteUser();
   const [confirming, setConfirming] = useState(false);
@@ -42,7 +42,7 @@ function UserRemover() {
           {isLoading && <LoadingSpinner className="mx-auto" />}
           {error && <p>Error deleting user. Please try again!</p>}
           <TextButton
-            className="self-center w-full hover:bg-opacity-80 hover:bg-red bg-red border-none"
+            className="self-center w-full hover:bg-opacity-80 hover:bg-red bg-red border-red hover:border-red"
             onClick={deleteUser}
           >
             {t("userPanel.deleteAccountButton")}
@@ -53,4 +53,4 @@ function UserRemover() {
   );
 }
 
-export default UserRemover;
+export default UserRemoveButton;

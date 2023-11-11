@@ -1,5 +1,5 @@
 import useLoginLogout from "./hooks/useLoginLogout";
 import LoginBlock from "./components/LoginBlock";
-import useInitUser from "./hooks/useInitUser";
+import useCheckUser from "./hooks/useCheckUser";
 
-export { useLoginLogout, LoginBlock, useInitUser };
+export { useLoginLogout, LoginBlock, useCheckUser };

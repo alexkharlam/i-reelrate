@@ -1,15 +1,11 @@
 import { useEffect } from "react";
 import useApi from "../../hooks/useApi";
 import LoadingSpinner from "../../components/ui/spinners/LoadingSpinner";
-import UserRemover from "./UserRemover";
 import { useTranslation } from "react-i18next";
-import TextButton from "../../components/ui/buttons/TextButton";
-import { useLoginLogout } from "../Auth";
 
 function UserInfo() {
   const { t } = useTranslation();
-  const { handleLogout } = useLoginLogout();
-  const { makeRequest, data } = useApi();
+  const { makeRequest, data, isLoading, error } = useApi();
   const user = data?.user || null;
 
   useEffect(() => {
@@ -22,16 +18,10 @@ function UserInfo() {
       email: user.email,
       role: user.role,
       totalReviews: user.reviewsQuantity,
-      logout: (
-        <TextButton onClick={handleLogout}>
-          {t("userPanel.logoutButton")}
-        </TextButton>
-      ),
-      deleteAccountButton: <UserRemover />,
     };
 
     return (
-      <ul className="border-2 rounded-sm mb-3 border-gray-600 overflow-hidden">
+      <ul className="">
         {Object.keys(userViewData).map((key) => (
           <li
             className="flex justify-between p-2.5 bg-opacity-40 bg-gray-600 odd:bg-opacity-25"
@@ -45,7 +35,9 @@ function UserInfo() {
     );
   }
 
-  return <LoadingSpinner className="mx-auto my-2" />;
+  if (isLoading) return <LoadingSpinner className="mx-auto my-2" />;
+
+  if (error) return <p className="p-3 text-center">{error}</p>;
 }
 
 export default UserInfo;

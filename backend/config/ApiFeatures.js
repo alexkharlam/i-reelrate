@@ -1,7 +1,11 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 class ApiFeatures {
   constructor(query, queryString) {
     this.query = query;
-    this.queryString = queryString;
+    this.queryString = queryString || {};
   }
 
   sort() {
@@ -33,14 +37,6 @@ class ApiFeatures {
     return this;
   }
 
-  limit() {
-    const limit = this.queryString.limit * 1 || 5;
-
-    this.query = this.query.limit(limit);
-
-    return this;
-  }
-
   limitFields() {
     if (this.queryString.fields) {
       const fields = this.queryString.fields.split(",").join(" ");
@@ -54,7 +50,9 @@ class ApiFeatures {
 
   paginate() {
     const page = this.queryString.page * 1 || 1;
-    const limit = this.queryString.limit * 1 || 5;
+
+    const limit = this.queryString.limit * 1 || process.env.DEFAULT_PAGE_LIMIT;
+
     const skip = (page - 1) * limit;
 
     this.query = this.query.skip(skip).limit(limit);

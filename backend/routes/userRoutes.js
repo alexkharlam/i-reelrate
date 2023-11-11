@@ -1,6 +1,9 @@
 import express from "express";
 
-import { protect } from "../controllers/authController/authController.js";
+import {
+  protect,
+  checkAuth,
+} from "../controllers/authController/authController.js";
 import {
   deleteUser,
   getUser,
@@ -8,6 +11,7 @@ import {
 
 const router = express.Router();
 
+router.get("/checkAuth", checkAuth);
 router.get("/", protect, getUser);
 router.delete("/deleteMe", protect, deleteUser);
 

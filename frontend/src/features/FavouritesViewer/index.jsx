@@ -8,6 +8,7 @@ function FavouritesViewer() {
   const { t } = useTranslation();
   const { makeRequest, isLoading, error, data } = useApi();
   const reviews = data?.likes || [];
+  console.log(reviews);
 
   useEffect(() => {
     makeRequest({ url: "/api/likes" });

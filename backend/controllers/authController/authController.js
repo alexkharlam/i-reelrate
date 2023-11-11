@@ -7,6 +7,7 @@ import AppError from "../errorController/AppError.js";
 import { signSendToken, verifyToken } from "./jwtController.js";
 
 dotenv.config();
+const { NODE_ENV, DEV_TOKEN, URL_DOMAIN_NAME, URL_PROTOCOL } = process.env;
 
 export const startAuth = async (accessToken, refreshToken, profile, done) => {
   const existingUser = await User.findOne({ email: profile._json.email });
@@ -33,13 +34,13 @@ export const handleAuthCallback = (req, res) => {
     })
   );
 
-  const urlProtocol = process.env.URL_PROTOCOL;
-  const urlDomainName = process.env.URL_DOMAIN_NAME;
-  res.redirect(`${urlProtocol}://${urlDomainName}?user=${userParam}`);
+  res.redirect(`${URL_PROTOCOL}://${URL_DOMAIN_NAME}?user=${userParam}`);
 };
 
 export const protect = catchAsync(async (req, res, next) => {
-  const token = req.cookies.jwt;
+  let token;
+  if (NODE_ENV === "development") token = DEV_TOKEN;
+  if (NODE_ENV === "production") token = req.cookies.jwt;
 
   if (!token) return next(new AppError("You are not authorized", 401));
 
@@ -51,6 +52,25 @@ export const protect = catchAsync(async (req, res, next) => {
 
   req.user = freshUser;
   next();
+});
+
+export const checkAuth = catchAsync(async (req, res, next) => {
+  let token;
+  if (NODE_ENV === "development") token = DEV_TOKEN;
+  if (NODE_ENV === "production") token = req.cookies.jwt;
+
+  if (!token) return next(new AppError("You are not authorized", 401));
+
+  const decoded = await verifyToken(token);
+
+  const user = await User.findById(decoded.id);
+
+  if (!user) return next(new AppError("User not found", 401));
+
+  console.log("CHECKING USER");
+  res.status(200).json({
+    user,
+  });
 });
 
 export const restrictTo =

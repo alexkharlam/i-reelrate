@@ -5,8 +5,8 @@ import {
   createLike,
   getLike,
   deleteLike,
-  getLikedReviews,
 } from "../controllers/likeController/likeController.js";
+import { getLikedReviews } from "../controllers/reviewController/reviewController.js";
 
 const router = express.Router();
 

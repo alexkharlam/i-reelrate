@@ -17,7 +17,6 @@ export const getUser = catchAsync(async (req, res) => {
 
   res.status(200).json({
     status: "success",
-    isAuthenticated: true,
     user: {
       reviewsQuantity,
       role: req.user.role,
