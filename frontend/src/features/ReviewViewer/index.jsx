@@ -14,7 +14,7 @@ import ReviewComments from "./ReviewComments";
 import Rating from "./Rating";
 import UserRate from "../UserRate";
 import useApi from "../../hooks/useApi";
-import ReviewManager from "./ReviewManager";
+import DeleteReviewButton from "./DeleteReviewButton";
 
 export default function ReviewViewer({ reviewId }) {
   const { t } = useTranslation();
@@ -32,8 +32,10 @@ export default function ReviewViewer({ reviewId }) {
         <>
           <Product review={review} />
           <Title review={review} />
-          {isAuthenticated && <LikeReview reviewId={review._id} />}
-          <ReviewManager review={review} />
+          <div className="flex gap-2 items-center">
+            <DeleteReviewButton review={review} />
+            {isAuthenticated && <LikeReview reviewId={review._id} />}
+          </div>
           <CoverImage review={review} />
           <div className="flex gap-3.5 sm:gap-0.5 sm:flex-row justify-between items-start flex-col">
             <div className="flex flex-col gap-3.5">

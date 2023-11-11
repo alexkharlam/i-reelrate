@@ -4,7 +4,7 @@ import useApi from "../../hooks/useApi";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../../components/ui/spinners/LoadingSpinner";
 
-function ReviewManager({ review }) {
+function DeleteReviewButton({ review }) {
   const { makeRequest, isLoading } = useApi();
   const navigate = useNavigate();
   const { isAuthenticated, user } = useSelector((state) => state.auth);
@@ -35,4 +35,4 @@ function ReviewManager({ review }) {
   );
 }
 
-export default ReviewManager;
+export default DeleteReviewButton;

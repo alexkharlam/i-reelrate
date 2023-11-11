@@ -67,7 +67,6 @@ export const checkAuth = catchAsync(async (req, res, next) => {
 
   if (!user) return next(new AppError("User not found", 401));
 
-  console.log("CHECKING USER");
   res.status(200).json({
     user,
   });
