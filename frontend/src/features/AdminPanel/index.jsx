@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import useApi from "../../hooks/useApi";
-import "react-data-grid/lib/styles.css";
 import UserList from "./UserList";
 import UserPagination from "./UserPagination";
 
