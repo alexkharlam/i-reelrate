@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema({
     default:
       "https://res.cloudinary.com/dl3mrqdyz/image/upload/v1695052774/defaults/default-user.jpg",
   },
+  blocked: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

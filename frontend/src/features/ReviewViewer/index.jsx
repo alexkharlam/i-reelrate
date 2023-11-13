@@ -32,9 +32,9 @@ export default function ReviewViewer({ reviewId }) {
         <>
           <Product review={review} />
           <Title review={review} />
-          <div className="flex gap-2 items-center">
-            <DeleteReviewButton review={review} />
+          <div className="flex gap-2.5 sm:justify-between sm:flex-row flex-col sm:items-center mt-3 mb-2.5">
             {isAuthenticated && <LikeReview reviewId={review._id} />}
+            <DeleteReviewButton review={review} />
           </div>
           <CoverImage review={review} />
           <div className="flex gap-3.5 sm:gap-0.5 sm:flex-row justify-between items-start flex-col">

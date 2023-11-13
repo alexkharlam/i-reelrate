@@ -11,6 +11,7 @@ import connectDB from "./middleware/db.js";
 import expressHelpers from "./middleware/expressHelpers.js";
 import sanitization from "./middleware/sanitization.js";
 import security from "./middleware/security.js";
+import adminRoutes from "./routes/adminRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import commentRoutes from "./routes/commentRoutes.js";
 import likeRoutes from "./routes/likeRoutes.js";
@@ -37,6 +38,7 @@ app.use(compression());
 
 app.use("/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/admin", adminRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/rates", rateRoutes);
 app.use("/api/comments", commentRoutes);

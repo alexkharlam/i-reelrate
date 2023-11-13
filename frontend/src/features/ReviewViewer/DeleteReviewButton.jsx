@@ -9,12 +9,10 @@ function DeleteReviewButton({ review }) {
   const navigate = useNavigate();
   const { isAuthenticated, user } = useSelector((state) => state.auth);
   const isOwnReview = user?._id === review.user._id;
-  console.log(user);
 
   if (!isAuthenticated || !isOwnReview) return;
 
   async function handleDelete() {
-    console.log("delete");
     await makeRequest({
       url: `/api/reviews/${review._id}`,
       options: { method: "DELETE" },
@@ -23,7 +21,7 @@ function DeleteReviewButton({ review }) {
   }
 
   return (
-    <div className="mt-3 mb-2">
+    <div className="">
       {isLoading && <LoadingSpinner />}
       <TextButton
         onClick={handleDelete}

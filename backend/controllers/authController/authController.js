@@ -48,6 +48,8 @@ export const protect = catchAsync(async (req, res, next) => {
 
   const freshUser = await User.findById(decoded.id);
 
+  if (freshUser.blocked) return next(new AppError("User was blocked", 401));
+
   if (!freshUser) return next(new AppError("User not found", 401));
 
   req.user = freshUser;

@@ -15,7 +15,7 @@ function LikeReview({ reviewId }) {
 
   return (
     <button
-      className="flex gap-2 items-center group my-2.5"
+      className="flex gap-2 items-center group"
       disabled={isLoading}
       onClick={handleLike}
     >

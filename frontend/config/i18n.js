@@ -83,6 +83,7 @@ i18n
             tech: "tech",
           },
           navigation: {
+            adminPanel: "Admin panel",
             home: "Home",
             topReviews: "Top reviews",
             createReview: "Create review",
@@ -202,6 +203,7 @@ i18n
             tech: "Техника",
           },
           navigation: {
+            adminPanel: "Админ панель",
             home: "Главная",
             topReviews: "Лучшие обзоры",
             createReview: "Создать обзор",

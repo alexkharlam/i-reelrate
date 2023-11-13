@@ -8,6 +8,7 @@ export default {
     },
     extend: {},
     colors: {
+      green: "#2f9e44",
       red: "#f03e3e",
       gradient: {
         yellow: {

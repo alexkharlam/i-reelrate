@@ -15,6 +15,7 @@ import ErrorPage from "./pages/ErrorPage";
 import App from "./App";
 import CreateReview from "./pages/CreateReview";
 import FavouriteReviews from "./pages/FavouriteReviews";
+import Admin from "./pages/Admin";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/reviews/:id" element={<Review />} />
 
       <Route path="" element={<PrivateRoute />}>
+        <Route path="/admin" element={<Admin />} />
         <Route path="/reviews/create" element={<CreateReview />} />
         <Route path="/profile/reviews" element={<MyReviews />} />
         <Route path="/profile/favourites" element={<FavouriteReviews />} />
