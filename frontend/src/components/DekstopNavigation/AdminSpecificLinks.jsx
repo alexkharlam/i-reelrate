@@ -1,6 +1,6 @@
 import { Database } from "react-feather";
 
-import TextIconLink from "../ui/links/TextIconLink";
+import TextIconLink from "../ui/TextIconLink";
 import { useTranslation } from "react-i18next";
 
 function AdminSpecificLinks() {
@@ -8,7 +8,7 @@ function AdminSpecificLinks() {
 
   return (
     <>
-      <TextIconLink to="/admin" Icon={Database}>
+      <TextIconLink to="/admin" StartIcon={Database}>
         {t("navigation.adminPanel")}
       </TextIconLink>
     </>

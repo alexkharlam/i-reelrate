@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import useLike from "./useLike";
 
 function LikeReview({ reviewId }) {
-  const { liked, getLike, isLoading, handleLike } = useLike(reviewId);
+  const { liked, getLike, isLoading, handleLike, totalLikes } =
+    useLike(reviewId);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -29,6 +30,7 @@ function LikeReview({ reviewId }) {
       <p className="text-secondary">
         {!liked ? t("favourites.addTo") : t("favourites.deleteFrom")}
       </p>
+      {totalLikes > 0 && <p className="text-secondary">({totalLikes})</p>}
     </button>
   );
 }

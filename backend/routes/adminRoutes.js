@@ -4,11 +4,8 @@ import {
   getAllUsers,
   blockUser,
   unblockUser,
-} from "../controllers/adminController/adminController.js";
-import {
-  protect,
-  restrictTo,
-} from "../controllers/authController/authController.js";
+} from "../controllers/adminController.js";
+import { protect, restrictTo } from "../controllers/authController.js";
 
 const router = express.Router();
 

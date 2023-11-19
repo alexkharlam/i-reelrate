@@ -1,5 +1,5 @@
 import { Heart, Home, Plus, Search, User } from "react-feather";
-import IconLink from "../ui/links/IconLink";
+import TextIconLink from "../ui/TextIconLink";
 import { useSelector } from "react-redux";
 
 function MobileNavigation() {
@@ -7,16 +7,22 @@ function MobileNavigation() {
 
   return (
     <div className="z-50 flex justify-around gap-1 items-center fixed bottom-[0px] left-[0px] w-full h-4 bg-gray-1100 bg-opacity-95">
-      <IconLink Icon={Home} url="/" />
-      <IconLink Icon={Search} url="/search" />
+      <TextIconLink StartIcon={Home} to="/" iconSize={32} />
+      <TextIconLink StartIcon={Search} to="/search" iconSize={32} />
       {isAuthenticated && (
         <>
-          <IconLink Icon={Plus} url="/reviews/create" />
-          <IconLink Icon={User} url="/profile/reviews" />
-          <IconLink Icon={Heart} url="/profile/favourites" />
+          <TextIconLink StartIcon={Plus} to="/reviews/create" iconSize={32} />
+          <TextIconLink StartIcon={User} to="/profile/reviews" iconSize={32} />
+          <TextIconLink
+            StartIcon={Heart}
+            to="/profile/favourites"
+            iconSize={32}
+          />
         </>
       )}
-      {!isAuthenticated && <IconLink Icon={User} url="/login" />}
+      {!isAuthenticated && (
+        <TextIconLink StartIcon={User} to="/login" iconSize={32} />
+      )}
     </div>
   );
 }

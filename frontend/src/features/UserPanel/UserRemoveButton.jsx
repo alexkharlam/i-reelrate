@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Button from "../../components/ui/buttons/TextButton";
+import Button from "../../components/ui/Button";
 import useDeleteUser from "./useDeleteUser";
-import TextButton from "../../components/ui/buttons/TextButton";
 import Modal from "../../components/ui/Modal";
-import LoadingSpinner from "../../components/ui/spinners/LoadingSpinner";
+import LoadingSpinner from "../../components/ui/LoadingSpinner";
 import { useTranslation } from "react-i18next";
+import { Trash as TrashIcon } from "react-feather";
 
 function UserRemoveButton() {
   const { t } = useTranslation();
@@ -17,10 +17,7 @@ function UserRemoveButton() {
 
   return (
     <>
-      <Button
-        className="bg-red hover:bg-red hover:bg-opacity-80 border-none text-white"
-        onClick={toggleConfirming}
-      >
+      <Button StartIcon={TrashIcon} onClick={toggleConfirming} isRed={true}>
         {t("userPanel.deleteAccountButton")}
       </Button>
 
@@ -41,12 +38,12 @@ function UserRemoveButton() {
           </div>
           {isLoading && <LoadingSpinner className="mx-auto" />}
           {error && <p>Error deleting user. Please try again!</p>}
-          <TextButton
+          <Button
             className="self-center w-full hover:bg-opacity-80 hover:bg-red bg-red border-red hover:border-red"
             onClick={deleteUser}
           >
             {t("userPanel.deleteAccountButton")}
-          </TextButton>
+          </Button>
         </Modal>
       )}
     </>

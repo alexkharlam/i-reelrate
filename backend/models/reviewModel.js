@@ -1,12 +1,15 @@
+import dotenv from "dotenv";
 import mongoose from "mongoose";
 
 import validCategories from "../config/categories.js";
 
+dotenv.config();
+const { DEFAULT_REVIEW_URL } = process.env;
+
 const reviewSchema = new mongoose.Schema({
   coverImageUrl: {
     type: String,
-    default:
-      "https://res.cloudinary.com/dl3mrqdyz/image/upload/v1695263924/defaults/coverImageDefault_zjctsl.svg",
+    default: DEFAULT_REVIEW_URL,
   },
   title: { type: String, required: true, maxlength: 70 },
   product: { type: String, required: true },

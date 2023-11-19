@@ -1,4 +1,8 @@
+import dotenv from "dotenv";
 import mongoose from "mongoose";
+
+dotenv.config();
+const { DEFAULT_AVATAR_URL } = process.env;
 
 const userSchema = new mongoose.Schema({
   role: {
@@ -18,8 +22,7 @@ const userSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    default:
-      "https://res.cloudinary.com/dl3mrqdyz/image/upload/v1695052774/defaults/default-user.jpg",
+    default: DEFAULT_AVATAR_URL,
   },
   blocked: {
     type: Boolean,

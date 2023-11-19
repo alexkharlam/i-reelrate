@@ -1,40 +1,39 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect } from "react";
 import ReviewsList from "../../components/ReviewsList";
-import useSearch from "./useSearch";
-import CenteredText from "../../components/ui/messages/CenteredText";
-import LoadingSpinner from "../../components/ui/spinners/LoadingSpinner";
-import { InputContext } from "./inputContext";
+import useApi from "../../hooks/useApi";
 
-function SearchContainer() {
-  const [results, setResults] = useState([]);
-  const { inputValue } = useContext(InputContext);
-  const { searchReviews, isLoading, error } = useSearch();
+function SearchContainer({ inputValue }) {
+  const { isLoading: isLoadingResults, error, data, makeRequest } = useApi();
+  const results = data?.results || [];
 
   useEffect(() => {
     if (!inputValue) return;
 
+    function fetchResults() {
+      makeRequest({
+        url: "/api/reviews/search",
+        options: {
+          method: "post",
+          data: { query: inputValue },
+        },
+      });
+    }
+
     const identifier = setTimeout(() => {
-      searchReviews(inputValue, (res) => setResults(res.data?.results));
+      fetchResults();
     }, 1000);
 
     return () => clearTimeout(identifier);
-  }, [inputValue, searchReviews]);
+  }, [inputValue, makeRequest]);
 
-  if (isLoading) return <LoadingSpinner />;
-
-  if (error)
+  if (inputValue)
     return (
-      <CenteredText additionalText={error}>
-        For some reason we cannot get reviews. Please try again!
-      </CenteredText>
+      <ReviewsList
+        reviews={results}
+        isLoading={isLoadingResults}
+        error={error}
+      />
     );
-
-  if (results.length > 0 && inputValue)
-    return <ReviewsList reviews={results} />;
-
-  return (
-    <CenteredText>No results yet. Try to type something else!</CenteredText>
-  );
 }
 
 export default SearchContainer;

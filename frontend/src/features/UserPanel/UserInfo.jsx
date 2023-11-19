@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import useApi from "../../hooks/useApi";
-import LoadingSpinner from "../../components/ui/spinners/LoadingSpinner";
+import LoadingSpinner from "../../components/ui/LoadingSpinner";
 import { useTranslation } from "react-i18next";
 
 function UserInfo() {

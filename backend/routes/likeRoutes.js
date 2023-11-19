@@ -1,12 +1,12 @@
 import express from "express";
 
-import { protect } from "../controllers/authController/authController.js";
+import { protect } from "../controllers/authController.js";
 import {
   createLike,
   getLike,
   deleteLike,
-} from "../controllers/likeController/likeController.js";
-import { getLikedReviews } from "../controllers/reviewController/reviewController.js";
+} from "../controllers/likeController.js";
+import { getLikedReviews } from "../controllers/reviewController.js";
 
 const router = express.Router();
 

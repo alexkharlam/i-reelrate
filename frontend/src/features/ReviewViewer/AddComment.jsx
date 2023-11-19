@@ -1,14 +1,15 @@
 import { useState } from "react";
-import Button from "../../components/ui/buttons/TextButton";
+import Button from "../../components/ui/Button";
 import { useTranslation } from "react-i18next";
+import { FilePlus as FilePlusIcon } from "react-feather";
 
 function AddComment({ onAddComment }) {
   const [value, setValue] = useState("");
   const { t } = useTranslation();
 
   async function handleClick() {
-    setValue("");
     onAddComment(value);
+    setValue("");
   }
 
   return (
@@ -20,7 +21,9 @@ function AddComment({ onAddComment }) {
         maxLength={100}
         placeholder={t("comments.placeholder")}
       />
-      <Button onClick={handleClick} text={t("comments.submitComment")} />
+      <Button StartIcon={FilePlusIcon} onClick={handleClick}>
+        {t("comments.submitComment")}
+      </Button>
     </>
   );
 }

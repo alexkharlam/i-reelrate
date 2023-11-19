@@ -2,15 +2,24 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const {
+  GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET,
+  GITHUB_CLIENT_ID,
+  GITHUB_CLIENT_SECRET,
+  URL_PROTOCOL,
+  URL_DOMAIN_NAME,
+} = process.env;
+
 export default {
   google: {
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://reelrate.onrender.com/auth/google/callback",
+    clientID: GOOGLE_CLIENT_ID,
+    clientSecret: GOOGLE_CLIENT_SECRET,
+    callbackURL: `${URL_PROTOCOL}://${URL_DOMAIN_NAME}/auth/google/callback`,
   },
   github: {
-    clientID: process.env.GITHUB_CLIENT_ID,
-    clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: "https://reelrate.onrender.com/auth/github/callback",
+    clientID: GITHUB_CLIENT_ID,
+    clientSecret: GITHUB_CLIENT_SECRET,
+    callbackURL: `${URL_PROTOCOL}://${URL_DOMAIN_NAME}/auth/github/callback`,
   },
 };

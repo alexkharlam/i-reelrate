@@ -18,5 +18,3 @@ export const uploadImageBuffer = (imageBuffer, folder) =>
 
     strimifier.createReadStream(imageBuffer).pipe(cldUploadStream);
   });
-
-export const sdfs = "";

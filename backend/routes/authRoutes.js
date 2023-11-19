@@ -8,7 +8,7 @@ import {
   handleAuthCallback,
   logoutUser,
   startAuth,
-} from "../controllers/authController/authController.js";
+} from "../controllers/authController.js";
 
 const router = express.Router();
 

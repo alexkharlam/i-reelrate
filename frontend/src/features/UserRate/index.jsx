@@ -5,8 +5,8 @@ import ChangeScoreButton from "./ChangeScoreButton";
 import useUserScore from "./useUserScore";
 
 import Stars from "./Stars";
-import TextButton from "../../components/ui/buttons/TextButton";
-import LoadingSpinner from "../../components/ui/spinners/LoadingSpinner";
+import Button from "../../components/ui/Button";
+import LoadingSpinner from "../../components/ui/LoadingSpinner";
 
 function UserRate({ reviewId }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -37,12 +37,12 @@ function UserRate({ reviewId }) {
           {!isLoading && (
             <>
               <Stars onScore={handleScore} />
-              <TextButton
+              <Button
                 className="block text-sm border-none hover:underline mt-2"
                 onClick={handleDeleteScore}
               >
                 Delete my score
-              </TextButton>
+              </Button>
             </>
           )}
         </ScoreModal>

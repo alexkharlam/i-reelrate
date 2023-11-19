@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux";
 import { LoginBlock } from "../features/Auth";
-import BestReview from "../components/BestReview/BestReview";
-
+import BestReviewCard from "../components/BestReviewCard";
 import { useTranslation } from "react-i18next";
 import ReviewListViewer from "../features/ReviewListViewer";
-import CtaBlock from "../components/CtaBlock/CtaBlock";
+import MainLinksBlock from "../components/MainLinksBlock";
 
 function Home() {
   const { t } = useTranslation();
@@ -12,18 +11,9 @@ function Home() {
 
   return (
     <div>
-      <BestReview />
-      {isAuthenticated && (
-        <div className="my-3.5">
-          <h3 className="text-2xl font-semibold">{t("cta.createReview")}</h3>
-          <CtaBlock />
-        </div>
-      )}
-      {!isAuthenticated && (
-        <div className="mb-3.5">
-          <LoginBlock />
-        </div>
-      )}
+      <BestReviewCard />
+      {isAuthenticated && <MainLinksBlock className="my-3.5" />}
+      {!isAuthenticated && <LoginBlock className="my-3.5" />}
 
       <h3>{t("reviews.popular")}</h3>
       <ReviewListViewer

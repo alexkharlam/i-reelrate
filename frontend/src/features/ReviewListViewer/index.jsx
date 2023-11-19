@@ -1,12 +1,12 @@
 import CategoryList from "./CategoryList";
 import SortSelect from "./SortSelect";
-import Reviews from "./Reviews";
-import Pagination from "./Pagination";
 import CATEGORIES from "../../../config/categories";
 import useQuery from "./useQuery";
 import { useEffect } from "react";
 import useApi from "../../hooks/useApi";
 import getUrlQueryString from "../../utils/getUrlQueryString";
+import PaginationBlock from "../../components/PaginationBlock";
+import ReviewsList from "../../components/ReviewsList";
 
 function ReviewListViewer({
   initialQuery,
@@ -15,7 +15,7 @@ function ReviewListViewer({
   enablePagination,
 }) {
   const { query, updateQuery } = useQuery(initialQuery);
-  const { data, makeRequest, isLoading, error } = useApi();
+  const { data, makeRequest, isLoading: isLoadingReviews, error } = useApi();
   const reviews = data?.reviews || [];
   const totalPages = data?.totalPages || 1;
 
@@ -23,6 +23,11 @@ function ReviewListViewer({
     const queryString = getUrlQueryString(query);
     makeRequest({ url: `/api/reviews?${queryString}` });
   }, [query, makeRequest]);
+
+  function handlePage(numValue = 0) {
+    if (numValue < 0) updateQuery({ page: +query.page - 1 });
+    else updateQuery({ page: +query.page + 1 });
+  }
 
   return (
     <>
@@ -34,13 +39,16 @@ function ReviewListViewer({
         />
       )}
       {enableSorting && <SortSelect query={query} updateQuery={updateQuery} />}
-      <Reviews reviews={reviews} isLoading={isLoading} error={error} />
+      <ReviewsList
+        reviews={reviews}
+        isLoading={isLoadingReviews}
+        error={error}
+      />
       {enablePagination && (
-        <Pagination
-          updateQuery={updateQuery}
-          reviews={reviews}
-          query={query}
+        <PaginationBlock
           totalPages={totalPages}
+          page={query.page}
+          onHandlePage={handlePage}
         />
       )}
     </>

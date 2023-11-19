@@ -8,7 +8,7 @@ import Verdict from "./components/Verdict";
 import createFormData from "./utils/createFormData";
 import SubmitButton from "./components/SubmitButton";
 import useEditorFields from "./hooks/useEditorFields";
-import LoadingSpinner from "../../components/ui/spinners/LoadingSpinner";
+import LoadingSpinner from "../../components/ui/LoadingSpinner";
 import CenteredText from "../../components/ui/messages/CenteredText";
 import ResetButton from "./components/ResetButton";
 import Divider from "../../components/ui/Divider";

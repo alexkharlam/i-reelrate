@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import LoadingSpinner from "../../components/ui/spinners/LoadingSpinner";
-import { useTranslation } from "react-i18next";
+import LoadingSpinner from "../../components/ui/LoadingSpinner";
 import { useSelector } from "react-redux";
 import Divider from "../../components/ui/Divider";
 import LikeReview from "./LikeReview";
@@ -17,7 +16,6 @@ import useApi from "../../hooks/useApi";
 import DeleteReviewButton from "./DeleteReviewButton";
 
 export default function ReviewViewer({ reviewId }) {
-  const { t } = useTranslation();
   const { isAuthenticated } = useSelector((state) => state.auth);
   const { makeRequest, data, isLoading, error } = useApi();
   const review = data?.review || null;
@@ -38,7 +36,7 @@ export default function ReviewViewer({ reviewId }) {
           </div>
           <CoverImage review={review} />
           <div className="flex gap-3.5 sm:gap-0.5 sm:flex-row justify-between items-start flex-col">
-            <div className="flex flex-col gap-3.5">
+            <div className="flex flex-col gap-2">
               <Rating reviewId={reviewId} />
               <UserRate reviewId={reviewId} />
             </div>
@@ -48,12 +46,7 @@ export default function ReviewViewer({ reviewId }) {
           <Text review={review} />
           <Divider className="my-3" />
           <Verdict review={review} />
-          {isAuthenticated && (
-            <>
-              <h3 className="mt-3.5">{t("comments.comments")}</h3>
-              <ReviewComments reviewId={review._id} />
-            </>
-          )}
+          {isAuthenticated && <ReviewComments reviewId={review._id} />}
         </>
       )}
 

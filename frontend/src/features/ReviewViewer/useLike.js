@@ -3,7 +3,8 @@ import useApi from "../../hooks/useApi";
 
 export default function useLike(reviewId) {
   const [liked, setLiked] = useState(false);
-  const { makeRequest, isLoading } = useApi();
+  const { makeRequest, isLoading, data } = useApi();
+  const totalLikes = data?.totalLikes || 0;
 
   const getLike = useCallback(() => {
     const submitData = (res) => setLiked(res.data?.like ? true : false);
@@ -27,5 +28,6 @@ export default function useLike(reviewId) {
     getLike,
     handleLike,
     isLoading,
+    totalLikes,
   };
 }

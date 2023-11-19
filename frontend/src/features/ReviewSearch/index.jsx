@@ -1,16 +1,19 @@
 import Divider from "../../components/ui/Divider";
 import SearchInput from "./SearchInput";
 import SearchContainer from "./SearchContainer";
-import { InputProvider } from "./inputContext";
+import useUrlQuery from "../../hooks/useUrlQuery";
+import { useState } from "react";
 
 function ReviewSearch() {
+  const initialInputValue = useUrlQuery()?.query || "";
+  const [inputValue, setInputValue] = useState(initialInputValue);
+
   return (
-    <InputProvider>
-      <h1>Search reviews</h1>
+    <>
       <Divider className="mb-3" />
-      <SearchInput />
-      <SearchContainer />
-    </InputProvider>
+      <SearchInput inputValue={inputValue} onSetInputValue={setInputValue} />
+      <SearchContainer inputValue={inputValue} />
+    </>
   );
 }
 

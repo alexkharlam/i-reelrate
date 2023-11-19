@@ -1,10 +1,6 @@
-import { useContext } from "react";
 import { Search } from "react-feather";
-import { InputContext } from "./inputContext";
 
-function SearchInput() {
-  const { inputValue, setInputValue } = useContext(InputContext);
-
+function SearchInput({ inputValue, onSetInputValue }) {
   return (
     <div className="relative mb-3 max-w-2xl text-base font-semibold text-gray-900 w-full">
       <Search
@@ -15,7 +11,7 @@ function SearchInput() {
         type="text"
         placeholder="Search for reviews"
         className="w-full rounded-lg py-1.5 pl-3.5 pr-2"
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={(e) => onSetInputValue(e.target.value)}
         value={inputValue}
       />
     </div>

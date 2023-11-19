@@ -1,4 +1,4 @@
-import TextIconLink from "../ui/links/TextIconLink";
+import TextIconLink from "../ui/TextIconLink";
 import { Home, Search } from "react-feather";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -13,10 +13,10 @@ function DekstopNavigation() {
 
   return (
     <nav className="flex flex-col gap-3 text-gray-300">
-      <TextIconLink to="/" Icon={Home}>
+      <TextIconLink to="/" StartIcon={Home}>
         {t("navigation.home")}
       </TextIconLink>
-      <TextIconLink to="/search" Icon={Search}>
+      <TextIconLink to="/search" StartIcon={Search}>
         {t("navigation.search")}
       </TextIconLink>
 
